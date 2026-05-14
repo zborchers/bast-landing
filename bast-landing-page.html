@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body as Soul Tech — Symptom Interpreter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --bg-card: #f3f0e9;
+            --bg-raised: #ede8dd;
+            --accent: #2d5a3d;
+            --accent-light: rgba(45,90,61,0.08);
+            --accent-border: rgba(45,90,61,0.25);
+            --accent-pop: #c17f3a;
+            --text: #1e1a16;
+            --text-secondary: #5c5147;
+            --text-muted: #9c8f82;
+            --border: rgba(100,80,60,0.1);
+            --border-mid: rgba(100,80,60,0.18);
+            --shadow: rgba(30,26,22,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 21px;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 700px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Header */
+        header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(250,248,244,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .logo span { color: var(--accent); }
+
+        .header-cta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent);
+            padding: 9px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: #1e3d2a;
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 0 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.6rem, 5.5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            font-family: 'Crimson Text', Georgia, serif;
+            font-weight: 400;
+            color: var(--accent-pop);
+        }
+
+        .hero-sub {
+            font-size: 19px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent);
+            padding: 16px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(45,90,61,0.2);
+        }
+
+        .cta-primary:hover {
+            background: #1e3d2a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(45,90,61,0.25);
+        }
+
+        /* Sections */
+        .section { padding: 5rem 0; border-top: 1px solid var(--border); }
+
+        .section-eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.85rem;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.75rem;
+            color: var(--text);
+        }
+
+        .section-body { color: var(--text-secondary); line-height: 1.85; font-size: 21px; }
+        .section-body p { margin-bottom: 1.25rem; }
+        .section-body p:last-child { margin-bottom: 0; }
+
+        /* Preview */
+        .preview-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 2.5rem;
+            box-shadow: 0 4px 24px var(--shadow);
+        }
+
+        .preview-bar {
+            background: var(--bg-raised);
+            padding: 0.7rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preview-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--border-mid);
+        }
+
+        .preview-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        .preview-body { padding: 2rem; }
+
+        .msg-user {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        .msg-user-bubble {
+            background: var(--bg-raised);
+            border: 1px solid var(--border-mid);
+            border-radius: 14px 14px 2px 14px;
+            padding: 0.9rem 1.2rem;
+            max-width: 85%;
+            font-size: 19px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .msg-ai {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .msg-ai-icon {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            border: 1px solid var(--accent-border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .msg-ai-body {
+            font-size: 19px;
+            line-height: 1.82;
+            color: var(--text);
+        }
+
+        .soul-q {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(193,127,58,0.08);
+            border-left: 3px solid var(--accent-pop);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .soul-q-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-pop);
+            margin-bottom: 0.4rem;
+        }
+
+        .soul-q-text {
+            font-size: 19px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .preview-divider {
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0 0;
+            padding-top: 1.5rem;
+        }
+
+        .preview-divider-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .interactive-note {
+            margin-top: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .interactive-note-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .interactive-note p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        /* Framework */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .framework-tile {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .framework-tile:hover { border-color: var(--accent-border); }
+
+        .framework-tile-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.01em;
+        }
+
+        .framework-tile-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* Audience */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .audience-tile {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .audience-tile:hover { border-color: var(--border-mid); }
+
+        .audience-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--accent-pop);
+            opacity: 0.5;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .audience-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* Purchase */
+        .purchase {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            background: var(--bg-card);
+            margin-top: 0;
+        }
+
+        .purchase-price {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 80px;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin: 1rem 0 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .purchase-desc {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .purchase-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            text-align: left;
+        }
+
+        .purchase-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        .purchase-feature::before {
+            content: '✦';
+            color: var(--accent-pop);
+            font-size: 11px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        /* About */
+        .about { padding: 5rem 0; border-top: 1px solid var(--border); }
+
+        .about-inner {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .about-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-mid);
+        }
+
+        .about-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .about-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .about-bio {
+            font-size: 19px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 15px;
+            color: var(--text-muted);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 640px) {
+            .framework-grid,
+            .audience-grid,
+            .purchase-features { grid-template-columns: 1fr; }
+            .about-inner { flex-direction: column; align-items: center; text-align: center; }
+            .hero-headline { font-size: 2.4rem; }
+            header { padding: 1.25rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Body as <span>Soul</span> Tech</div>
+        <a href="https://zborchster.gumroad.com/l/dxrekr" class="header-cta">Get Access — $33</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-eyebrow">Symptom Interpreter</div>
+            <h1 class="hero-headline">What is your body<br>trying to <em>tell you?</em></h1>
+            <p class="hero-sub">Your body is soul technology. Every symptom, sensation, and physical pattern is a form of communication from a deeper part of yourself, and this tool helps you understand what it may be trying to say.</p>
+            <a href="https://zborchster.gumroad.com/l/dxrekr" class="cta-primary">Get Your Interpretation — $33</a>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">The gap</div>
+            <h2 class="section-title">Your body speaks a language you were never taught to understand</h2>
+            <div class="section-body">
+                <p>Most of us were never taught that the body speaks, or that physical symptoms can carry meaning beyond the purely biological. Sensation is one of the ways a deeper part of yourself communicates, and most people move through life without ever being given a way to understand that language.</p>
+                <p>This tool offers another lens for looking at what your body is expressing. It is not a replacement for anything you are already doing — it is simply an invitation to consider what your soul may be asking you to pay attention to.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">How it works</div>
+            <h2 class="section-title">A conversation, not a search result</h2>
+
+            <div class="preview-wrap">
+                <div class="preview-bar">
+                    <div class="preview-dot"></div>
+                    <div class="preview-dot"></div>
+                    <div class="preview-dot"></div>
+                    <div class="preview-label">Sample Interpretation</div>
+                </div>
+                <div class="preview-body">
+                    <div class="msg-user">
+                        <div class="msg-user-bubble">"I've been dealing with TMJ for about two years. My jaw locks up mostly on the right side."</div>
+                    </div>
+
+                    <div class="msg-ai">
+                        <div class="msg-ai-icon">✦</div>
+                        <div class="msg-ai-body">
+                            The jaw is governed by fifth chakra energy, which corresponds to truth, self-expression, and the integrity between what you think and what you actually say. The temporomandibular joint controls the hinge of opening and closing — the mechanical act of speaking, releasing, and being heard. Chronic tension here is not incidental. In the Body as Soul Tech framework, the jaw is one of the body's primary holding places for words that were formed but never released, and for the ongoing muscular effort of keeping them in.
+                            <br><br>
+                            The right side of the body connects to masculine energy, the outer world, performance, and the demands placed on you externally. Right-sided TMJ specifically tends to reflect a pattern of bracing in the context of doing — in roles, responsibilities, and relationships where self-expression has felt unsafe, inappropriate, or simply not worth the cost. The jaw on the right is often holding what the performing self decided not to say.
+                            <br><br>
+                            Two years is also meaningful. The body does not develop a chronic pattern overnight. Something that has been present for that length of time is usually rooted in a pattern rather than a single event — a long-standing way of managing self-expression that the body has now built into its resting posture. The jaw locking is the body enforcing what the mind decided some time ago: that staying closed was the safer option.
+                            <br><br>
+                            The fifth chakra sacrament is Confession — not in the punitive religious sense, but in its original meaning of speaking what is true. The soul message in chronic jaw tension is consistently about the cost of unexpressed truth and the energy required to keep containing it. The body is asking what it would mean to release that hold.
+
+                            <div class="soul-q">
+                                <div class="soul-q-label">Soul Guidance Question</div>
+                                <div class="soul-q-text">What have you been holding back from saying, and what do you believe would happen if you actually said it?</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-divider">
+                        <div class="preview-divider-label">The conversation continues...</div>
+
+                        <div class="msg-user">
+                            <div class="msg-user-bubble">"This makes sense. I also grind my teeth at night — is that related?"</div>
+                        </div>
+
+                        <div class="msg-ai">
+                            <div class="msg-ai-icon">✦</div>
+                            <div class="msg-ai-body">
+                                Nighttime grinding — bruxism — is directly related and adds an important layer to this reading. During the day, the jaw can be managed consciously. You can hold it, brace it, keep it controlled. At night, the conscious mind steps back and what has been held in the body all day begins to discharge. Grinding during sleep is the jaw doing at night what it could not do during waking hours — releasing the pressure that accumulated from a day of containment. The fact that it happens while you sleep suggests the pattern is not situational. It is running continuously beneath the surface, and the body is trying to process it whenever the guard comes down.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-note">
+                <div class="interactive-note-label">Fully Interactive</div>
+                <p>This is a chat-based tool, not a static result. Describe your symptoms and as much life context as feels relevant, receive a complete interpretation, and continue the conversation as deeply as you need to. You can ask follow-up questions, explore specific symptoms further, or bring in new ones entirely.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">The framework</div>
+            <h2 class="section-title">The Body as Soul Tech framework</h2>
+            <div class="section-body">
+                <p>The Body as Soul Tech framework understands the body as the soul's last resort for communication. When quieter channels — intuition, emotion, dreams — go unheard, the body speaks through symptoms, tension, and physical patterns. Every sensation carries information worth understanding.</p>
+            </div>
+            <div class="framework-grid">
+                <div class="framework-tile">
+                    <div class="framework-tile-title">Left / Right Body Mapping</div>
+                    <div class="framework-tile-desc">Left side symptoms relate to feminine energy, receiving, and inner emotional life. Right side symptoms connect to masculine energy, doing, and external world pressures.</div>
+                </div>
+                <div class="framework-tile">
+                    <div class="framework-tile-title">Soul Messages</div>
+                    <div class="framework-tile-desc">Symptoms aren't random malfunctions — they're intelligent communications about unresolved emotional, spiritual, or life circumstances your soul is working to surface.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Who this is for</div>
+            <h2 class="section-title">This is for you if...</h2>
+            <div class="audience-grid">
+                <div class="audience-tile">
+                    <div class="audience-num">01</div>
+                    <div class="audience-desc">You're curious about what your body might be communicating beyond the physical and open to exploring it through a spiritual lens</div>
+                </div>
+                <div class="audience-tile">
+                    <div class="audience-num">02</div>
+                    <div class="audience-desc">You're already paying attention to your health and want to understand the deeper patterns behind what keeps showing up in the body</div>
+                </div>
+                <div class="audience-tile">
+                    <div class="audience-num">03</div>
+                    <div class="audience-desc">You're an active spiritual seeker who wants a grounded, framework-based way of connecting soul guidance to physical experience</div>
+                </div>
+                <div class="audience-tile">
+                    <div class="audience-num">04</div>
+                    <div class="audience-desc">You're going through a significant life transition — stress, grief, change, uncertainty — and noticing it showing up somewhere in the body</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase -->
+    <section class="purchase" id="purchase">
+        <div class="container">
+            <div class="section-eyebrow">Get access</div>
+            <h2 class="section-title">Complete BAST Symptom Library</h2>
+            <div class="purchase-price">$33</div>
+            <p class="purchase-desc">One payment, lifetime access. Fully interactive and chat-based — not a static result. Describe your symptoms, receive a complete interpretation, and keep the conversation going as long and as deep as you need.</p>
+            <div class="purchase-features">
+                <div class="purchase-feature">Unlimited symptom interpretations</div>
+                <div class="purchase-feature">Full chakra and sacrament mapping</div>
+                <div class="purchase-feature">Left/right body distinctions</div>
+                <div class="purchase-feature">Ancestral pattern insights</div>
+                <div class="purchase-feature">Soul guidance questions</div>
+                <div class="purchase-feature">All body regions covered</div>
+            </div>
+            <a href="https://zborchster.gumroad.com/l/dxrekr" class="cta-primary" id="purchaseBtn">Get Instant Access — $33</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div class="container">
+            <div class="about-inner">
+                <img src="https://bast-landing.vercel.app/HEIRLOOM-1203.jpeg" alt="Zach Borchers" class="about-photo">
+                <div>
+                    <div class="about-name">Zachary Borchers</div>
+                    <div class="about-title">Operating Room Nurse · Creator of Body as Soul Tech</div>
+                    <div class="about-bio">Zach built the Body as Soul Tech framework from years of witnessing how the body holds what the mind won't face, combined with deep personal study of mystical theology, sacred science, and the body's role as a spiritual communication system.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        Body as Soul Tech &nbsp;·&nbsp; Spiritual and energetic interpretation — not medical advice
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+    </script>
+</body>
+</html>
