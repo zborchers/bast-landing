@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/bast-landing-page.html" }
+  ]
+}
