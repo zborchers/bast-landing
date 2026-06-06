@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body as Soul Tech — Know Yourself</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --bg-card: #f3f0e9;
+            --bg-raised: #ede8dd;
+            --accent: #2d5a3d;
+            --accent-light: rgba(45,90,61,0.08);
+            --accent-border: rgba(45,90,61,0.25);
+            --accent-pop: #c17f3a;
+            --text: #1e1a16;
+            --text-secondary: #5c5147;
+            --text-muted: #9c8f82;
+            --border: rgba(100,80,60,0.1);
+            --border-mid: rgba(100,80,60,0.18);
+            --shadow: rgba(30,26,22,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 21px;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 920px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Header */
+        header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(250,248,244,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .logo span { color: var(--accent); }
+
+        .header-cta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent);
+            padding: 9px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .header-cta:hover {
+            background: #1e3d2a;
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 3rem 0 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(3rem, 6.5vw, 5rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            font-family: 'Crimson Text', Georgia, serif;
+            font-weight: 400;
+            color: var(--accent-pop);
+        }
+
+        .hero-sub {
+            font-size: 22px;
+            color: var(--text-secondary);
+            max-width: 780px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent);
+            padding: 16px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(45,90,61,0.2);
+        }
+
+        .cta-primary:hover {
+            background: #1e3d2a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(45,90,61,0.25);
+        }
+
+        /* Sections */
+        .section { padding: 5rem 0; border-top: 1px solid var(--border); }
+
+        .section-eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.75rem;
+            color: var(--text);
+        }
+
+        .section-body { color: var(--text-secondary); line-height: 1.85; }
+        .section-body p { margin-bottom: 1.25rem; }
+        .section-body p:last-child { margin-bottom: 0; }
+
+        /* Preview */
+        .preview-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 2.5rem;
+            box-shadow: 0 4px 24px var(--shadow);
+        }
+
+        .preview-bar {
+            background: var(--bg-raised);
+            padding: 0.7rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preview-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--border-mid);
+        }
+
+        .preview-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        .preview-body { padding: 2rem; }
+
+        .msg-user {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        .msg-user-bubble {
+            background: var(--bg-raised);
+            border: 1px solid var(--border-mid);
+            border-radius: 14px 14px 2px 14px;
+            padding: 0.9rem 1.2rem;
+            max-width: 85%;
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .msg-ai {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .msg-ai-icon {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            border: 1px solid var(--accent-border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .msg-ai-body {
+            font-size: 17px;
+            line-height: 1.82;
+            color: var(--text);
+        }
+
+        .soul-q {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(193,127,58,0.08);
+            border-left: 3px solid var(--accent-pop);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .soul-q-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-pop);
+            margin-bottom: 0.4rem;
+        }
+
+        .soul-q-text {
+            font-size: 17px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .preview-divider {
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0 0;
+            padding-top: 1.5rem;
+        }
+
+        .preview-divider-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .interactive-note {
+            margin-top: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .interactive-note-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .interactive-note p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        /* Framework */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .framework-tile {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .framework-tile:hover { border-color: var(--accent-border); }
+
+        .framework-tile-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.01em;
+        }
+
+        .framework-tile-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* Audience */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .audience-tile {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .audience-tile:hover { border-color: var(--border-mid); }
+
+        .audience-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-pop);
+            opacity: 0.5;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .audience-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        @media (max-width: 900px) {
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Purchase */
+        .purchase {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: left;
+            background: var(--bg-card);
+            margin-top: 0;
+        }
+
+        .purchase-price { text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 80px;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin: 1rem 0 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .purchase-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .purchase-features { margin-left: auto; margin-right: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            text-align: left;
+        }
+
+        .purchase-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .purchase-feature::before {
+            content: '✦';
+            color: var(--accent-pop);
+            font-size: 11px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        /* About */
+        .about { padding: 5rem 0; border-top: 1px solid var(--border); }
+
+        .about-inner {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .about-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-mid);
+        }
+
+        .about-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .about-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .about-bio {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 640px) {
+            .framework-grid,
+            .audience-grid,
+            .purchase-features { margin-left: auto; margin-right: auto; grid-template-columns: 1fr; }
+            .about-inner { flex-direction: column; align-items: center; text-align: center; }
+            .hero-headline { font-size: 2.4rem; }
+            header { padding: 1.25rem 1.5rem; }
+        }
+        .prompt-chip {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(30,26,22,0.65);
+            background: rgba(30,26,22,0.04);
+            border: 1px solid rgba(30,26,22,0.12);
+            border-radius: 100px;
+            padding: 6px 14px;
+            cursor: pointer;
+            transition: all 0.18s;
+            white-space: nowrap;
+        }
+        .prompt-chip:hover {
+            background: rgba(45,90,61,0.07);
+            border-color: rgba(45,90,61,0.3);
+            color: #2d5a3d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Body as <span>Soul</span> Tech</div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Concentric circles -->
+                    <circle cx="32" cy="32" r="30" fill="none" stroke="#2d5a3d" stroke-width="1" opacity="0.25"/>
+                    <circle cx="32" cy="32" r="22" fill="none" stroke="#2d5a3d" stroke-width="0.75" opacity="0.2"/>
+                    <circle cx="32" cy="32" r="14" fill="none" stroke="#2d5a3d" stroke-width="0.75" opacity="0.18"/>
+                    <circle cx="32" cy="32" r="7" fill="none" stroke="#c17f3a" stroke-width="1" opacity="0.35"/>
+                    <!-- Center dot -->
+                    <circle cx="32" cy="32" r="2.5" fill="#2d5a3d" opacity="0.75"/>
+                    <!-- Four cardinal marks -->
+                    <line x1="32" y1="2" x2="32" y2="8" stroke="#2d5a3d" stroke-width="1" opacity="0.2"/>
+                    <line x1="32" y1="56" x2="32" y2="62" stroke="#2d5a3d" stroke-width="1" opacity="0.2"/>
+                    <line x1="2" y1="32" x2="8" y2="32" stroke="#2d5a3d" stroke-width="1" opacity="0.2"/>
+                    <line x1="56" y1="32" x2="62" y2="32" stroke="#2d5a3d" stroke-width="1" opacity="0.2"/>
+                </svg>
+            </div>
+            <div class="hero-eyebrow">Know Yourself</div>
+            <h1 class="hero-headline">What is your soul<br>trying to <em>tell you?</em></h1>
+            <p class="hero-sub">Your body is soul technology — not in the way a phone is technology, but in the way a cathedral is. Your body was designed with intention, built to hold something sacred, and speaks a spiritual language that goes far beyond words. Your physical life and your spiritual life are not two separate things — they are fully intertwined. Your soul speaks intelligently through your body, your life, your relationships, and your inner world, and the Know Yourself tool helps you understand what it all means.</p>
+
+            <div style="margin-top: 2.5rem; max-width: 780px; margin-left: auto; margin-right: auto;">
+                <div style="background: #ede8dd; border: 1.5px solid rgba(100,80,60,0.18); border-radius: 12px; padding: 16px 20px;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #2d5a3d; margin-bottom: 0.6rem;">Learn what your Soul is Trying to Tell you.</div>
+                    <textarea id="hero-input" placeholder="Describe what's going on in your body, your life, your relationships, or ask anything about the soul. The more detail you share, the deeper the interpretation." rows="3" style="width: 100%; background: transparent; border: none; outline: none; font-family: 'Crimson Text', Georgia, serif; font-size: 19px; line-height: 1.7; color: #1e1a16; resize: none; display: block;"></textarea>
+                    <div style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                        <button onclick="startReading()" id="hero-submit-btn" style="background: #2d5a3d; border: none; border-radius: 6px; padding: 10px 24px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; color: #fff; cursor: pointer; letter-spacing: 0.04em;">Begin &rarr;</button>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 12px; color: rgba(30,26,22,0.38); margin-top: 0.6rem; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.03em;">🔒 Private &amp; confidential &nbsp;·&nbsp; No account required</div>
+
+                <!-- Prompt chips -->
+                <div style="margin-top: 1.25rem;">
+                    <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(30,26,22,0.4); margin-bottom: 0.75rem;">Try asking</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <button onclick="setPrompt(0)" class="prompt-chip">I've had chronic lower back pain for 2 years and nothing helps.</button>
+                        <button onclick="setPrompt(1)" class="prompt-chip">I wake up every night between 2 and 3am.</button>
+                        <button onclick="setPrompt(2)" class="prompt-chip">Doctors said nothing was wrong for 4 years.</button>
+                        <button onclick="setPrompt(3)" class="prompt-chip">What does it mean to actually know yourself?</button>
+                        <button onclick="setPrompt(4)" class="prompt-chip">Why do I keep self-sabotaging?</button>
+                        <button onclick="setPrompt(5)" class="prompt-chip">I feel like I'm living someone else's life.</button>
+                        <button onclick="setPrompt(6)" class="prompt-chip">What is the soul?</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                var prompts = [
+                    "I've had chronic lower back pain for 2 years and nothing helps. What is my body trying to tell me?",
+                    "I wake up every night between 2 and 3am and can't fall back asleep.",
+                    "I was diagnosed with celiac disease two years ago after going 4 years with digestive issues because doctors said nothing was wrong.",
+                    "What does it mean to actually know yourself?",
+                    "Why do I keep self-sabotaging when I'm so close to what I want?",
+                    "I feel like I'm living someone else's life but I don't know how to find my own.",
+                    "What is the soul?"
+                ];
+                function setPrompt(index) {
+                    const ta = document.getElementById('hero-input');
+                    ta.value = prompts[index];
+                    ta.focus();
+                    ta.style.height = 'auto';
+                    ta.style.height = ta.scrollHeight + 'px';
+                }
+                function startReading() {
+                    const input = document.getElementById('hero-input').value.trim();
+                    if (!input) return;
+                    const btn = document.getElementById('hero-submit-btn');
+                    btn.textContent = 'Starting...';
+                    btn.disabled = true;
+                    const encoded = encodeURIComponent(input);
+                    window.location.href = 'https://bast-interpreter-kgie.vercel.app?q=' + encoded;
+                }
+                document.getElementById('hero-input').addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        startReading();
+                    }
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- Credibility -->
+    <div style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.25rem 0;">
+        <div class="container" style="display: flex; align-items: center; gap: 1.25rem; justify-content: center;">
+            <img src="https://bast-landing.vercel.app/HEIRLOOM-1203.jpeg" alt="Zachary Borchers" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-mid);" />
+            <div>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; color: var(--text);">Zachary Borchers</div>
+                <div style="font-family: 'Crimson Text', Georgia, serif; font-size: 15px; color: var(--text-secondary);">Creator of Body as Soul Tech</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">The gap</div>
+            <h2 class="section-title">Your soul speaks a language you were never taught to understand</h2>
+            <div class="section-body">
+                <p>Most of us were never taught that the soul speaks intelligently through our body, our relationships, and the repeating patterns in our lives. The physical and the spiritual are the same reality expressed at different frequencies. What we call "matter" is consciousness slowed down enough that it becomes tangible. What we call "spirit" is consciousness moving at frequencies our physical senses can't directly perceive. But it's all one continuous field.</p>
+                <p>The physical and spiritual are woven together so comprehensively that every physical event has a spiritual dimension and every spiritual truth has a physical expression. This is why the body is the soul's most reliable communication system. Your mind can lie to you. Your emotions can be manipulated. Your thoughts can be conditioned by trauma, culture, or fear. But your body can't lie. When your throat closes every time you try to speak your truth, your body isn't breaking down — it's your soul communicating with you. When your lower back spasms when you think about your financial situation, that's not random — it's your root chakra showing you where your sense of safety has collapsed.</p>
+                <p>The body is both a language and a map; it's the sacred cartography of the soul. Once you understand how to read the map, your physical form becomes a spiritual guide to your inner self. Nothing is random. Pain isn't random, nor is your body betraying you — it is simply your soul communicating with you.</p>
+                <p><em>The body is brutally honest, and once you learn its language, you can't unhear what it's saying.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes This Different -->
+    <section class="section" style="background: var(--bg-card);">
+        <div class="container">
+            <div class="section-eyebrow">Why this is different</div>
+            <h2 class="section-title">This isn't therapy. It isn't astrology. It isn't ChatGPT.</h2>
+            <div class="section-body">
+                <p>Therapy works with the mind but leaves the body out. Wellness apps give generic advice with no connection to your specific life. Astrology maps your tendencies but can't read what's happening in your body right now. ChatGPT gives you information — but information isn't interpretation, and interpretation isn't the same as being seen.</p>
+                <p>This does something none of them do. It meets you in the specific — your specific symptom, your specific pattern, your specific question — and reads it through a coherent framework built from clinical experience, mystical theology, and energy anatomy. The result isn't advice. It's translation. Your soul has been speaking. This is how you finally understand what it's been saying.</p>
+                <p>Nothing else on the internet offers this combination. Not because it's impossible — but because nobody else has built it from this specific convergence, with this level of depth, and with the courage to speak plainly about what the body is actually communicating.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">The framework</div>
+            <h2 class="section-title">The Body as Soul Tech framework</h2>
+            <div class="section-body">
+                <p>The Body as Soul Tech framework understands the physical and spiritual as one inseparable reality. Your soul speaks intelligently through your body, your relationships, your recurring patterns, and your deepest questions. This isn't a tool that gives you generic spiritual advice. It meets you exactly where you are — whether you're navigating a chronic symptom, a repeating life pattern, a relationship wound, or a question about the nature of consciousness itself — and gives you the specific depth of understanding your soul is ready for.</p>
+            </div>
+            <div class="framework-grid">
+                <div class="framework-tile">
+                    <div class="framework-tile-title">Left / Right Body Mapping</div>
+                    <div class="framework-tile-desc">Left side symptoms relate to feminine energy, receiving, and inner emotional life. Right side symptoms connect to masculine energy, doing, and external world pressures.</div>
+                </div>
+                <div class="framework-tile">
+                    <div class="framework-tile-title">Soul Messages</div>
+                    <div class="framework-tile-desc">Symptoms, patterns, and recurring experiences aren't random. They're intelligent communications from your soul, working to surface what's unresolved in your body, your life, and your relationships.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience -->
+    <section class="section">
+        <div class="wide-container" style="max-width: 1100px; padding: 0 2rem; margin: 0 auto;">
+            <div class="section-eyebrow">Who this is for</div>
+            <h2 class="section-title">This is for you if...</h2>
+            <div class="audience-grid">
+                <div class="audience-tile">
+                    <div class="audience-num">01</div>
+                    <div class="audience-desc">You have a physical symptom, a chronic condition, or a body pattern you've never been able to fully explain, and you want to understand what it's communicating at the soul level</div>
+                </div>
+                <div class="audience-tile">
+                    <div class="audience-num">02</div>
+                    <div class="audience-desc">You keep seeing the same patterns in your relationships, your work, or your inner life, and you're ready to understand what your soul is working to heal through them</div>
+                </div>
+                <div class="audience-tile">
+                    <div class="audience-num">03</div>
+                    <div class="audience-desc">You're a spiritual seeker with deep questions about consciousness, God, the soul, and how you're designed — and you want a grounded, coherent framework to explore them</div>
+                </div>
+                <div class="audience-tile">
+                    <div class="audience-num">04</div>
+                    <div class="audience-desc">You want to know yourself more fully — not just psychologically or physically, but at the level of soul — and you're ready for a conversation that goes that deep</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">What people are saying</div>
+            <h2 class="section-title">Real responses from real people</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 2rem;" class="testimonials-grid">
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem;">
+                    <p style="font-family: 'Crimson Text', Georgia, serif; font-size: 19px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem; font-style: italic;">"This is literally going to change lives. I know I keep saying that but I fully believe it."</p>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">— Jackie</div>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem;">
+                    <p style="font-family: 'Crimson Text', Georgia, serif; font-size: 19px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem; font-style: italic;">"Holy shit... how does this thing KNOW ME?! It is blowing my mind."</p>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">— Danielle</div>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem;">
+                    <p style="font-family: 'Crimson Text', Georgia, serif; font-size: 19px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem; font-style: italic;">"How amazing is this tool — it's beautiful and just so lovely. I typed in a few of my mom's conditions and damn, spot on. Wow."</p>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">— Maria</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom BAST Guide Modal -->
+    <div id="bast-guide-modal" style="display:none; position:fixed; inset:0; z-index:1000; align-items:center; justify-content:center; padding: 1.5rem;" onclick="if(event.target===this)this.style.display='none'">
+        <div style="position:absolute; inset:0; background:rgba(30,26,22,0.6); backdrop-filter:blur(4px);"></div>
+        <div style="position:relative; background:var(--bg); border:1px solid var(--border-mid); border-radius:12px; max-width:480px; width:100%; padding:3rem 2.5rem; text-align:center; box-shadow:0 24px 64px rgba(30,26,22,0.18);">
+            <!-- Close button -->
+            <button onclick="document.getElementById('bast-guide-modal').style.display='none'" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; cursor:pointer; color:var(--text-muted); font-size:20px; line-height:1; padding:4px 8px;" aria-label="Close">✕</button>
+            <!-- Sacred mark -->
+            <div style="margin-bottom:1.5rem;">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="17" stroke="#2d5a3d" stroke-width="1" opacity="0.3"/>
+                    <circle cx="18" cy="18" r="11" stroke="#2d5a3d" stroke-width="1" opacity="0.5"/>
+                    <circle cx="18" cy="18" r="5" stroke="#2d5a3d" stroke-width="1" opacity="0.7"/>
+                    <circle cx="18" cy="18" r="2" fill="#2d5a3d"/>
+                </svg>
+            </div>
+            <!-- Eyebrow -->
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:0.75rem;">Free Guide</div>
+            <!-- Title -->
+            <h2 style="font-family:'Crimson Text',Georgia,serif; font-size:2rem; font-weight:600; color:var(--text); line-height:1.2; margin-bottom:0.6rem;">The Body's Language</h2>
+            <!-- Subtitle -->
+            <p style="font-family:'Crimson Text',Georgia,serif; font-size:17px; color:var(--text-secondary); line-height:1.7; margin-bottom:2rem; font-style:italic;">What 10 common symptoms are actually telling you.</p>
+            <!-- CTA -->
+            <button
+                onclick="bastGuideSubmit()"
+                style="width:100%; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#fff; background:var(--accent); border:none; padding:14px 24px; border-radius:6px; cursor:pointer; transition:background 0.2s; margin-bottom:0.875rem;"
+                onmouseover="this.style.background='#1e3d2a';"
+                onmouseout="this.style.background='#2d5a3d';"
+            >
+                Get the Free Guide →
+            </button>
+            <p style="font-size:13px; color:var(--text-muted); font-family:'Plus Jakarta Sans',sans-serif;">Free · No credit card required</p>
+        </div>
+    </div>
+
+    <script>
+    function bastGuideSubmit() {
+        window.open('https://zborchster.gumroad.com/l/ngfzc', '_blank');
+        document.getElementById('bast-guide-modal').style.display = 'none';
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') document.getElementById('bast-guide-modal').style.display = 'none';
+    });
+    setTimeout(function() {
+        document.getElementById('bast-guide-modal').style.display = 'flex';
+    }, 5000);
+
+    </script>
+
+    <!-- Purchase -->
+    <section class="purchase" id="purchase" style="scroll-margin-top: 80px;">
+        <div class="container">
+            <div class="section-eyebrow">Get access</div>
+            <h2 class="section-title">Try it free. Unlock everything for $22.</h2>
+
+            <p style="font-size: 19px; color: var(--text-secondary); line-height: 1.85; font-family: 'Crimson Text', Georgia, serif; margin-bottom: 1.25rem;">Start for free — no account, no credit card, nothing to sign up for. Describe what's going on in your body, your life, your relationships, or ask anything about the soul. Experience your first response and see what this framework actually does.</p>
+            <p style="font-size: 19px; color: var(--text-secondary); line-height: 1.85; font-family: 'Crimson Text', Georgia, serif; margin-bottom: 2rem;">If it resonates — and we think it will — unlock unlimited conversations for $22. One payment, lifetime access. No subscriptions, no limits, no expiration.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem; max-width: 680px; margin-left: auto; margin-right: auto; text-align: center;">
+                <div style="background: var(--bg-raised); border-radius: 8px; padding: 1.5rem; border: 1px solid var(--border); text-align: left;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem;">What people typically spend</div>
+                    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 17px; font-family: 'Crimson Text', Georgia, serif; color: var(--text-secondary);"><span>Specialist visit</span><strong style="color: var(--text);">$300–500</strong></div>
+                        <div style="display: flex; justify-content: space-between; font-size: 17px; font-family: 'Crimson Text', Georgia, serif; color: var(--text-secondary);"><span>Functional medicine</span><strong style="color: var(--text);">$400–800</strong></div>
+                        <div style="display: flex; justify-content: space-between; font-size: 17px; font-family: 'Crimson Text', Georgia, serif; color: var(--text-secondary);"><span>Healing retreat</span><strong style="color: var(--text);">$2,000–5,000</strong></div>
+                        <div style="border-top: 1px solid var(--border); padding-top: 0.6rem; display: flex; justify-content: space-between; font-size: 17px; font-family: 'Crimson Text', Georgia, serif; color: var(--text-secondary);"><span>Years of searching</span><strong style="color: var(--text);">Priceless</strong></div>
+                    </div>
+                </div>
+                <div style="background: var(--accent); border-radius: 8px; padding: 1.5rem; text-align: left;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 1rem;">Body as Soul Tech</div>
+                    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                        <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 17px; font-family: 'Crimson Text', Georgia, serif; color: rgba(255,255,255,0.9);"><span style="color: #fff; font-size: 14px;">✦</span> Unlimited readings and conversations</div>
+                        <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 17px; font-family: 'Crimson Text', Georgia, serif; color: rgba(255,255,255,0.9);"><span style="color: #fff; font-size: 14px;">✦</span> Available 24/7, instantly</div>
+                        <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 17px; font-family: 'Crimson Text', Georgia, serif; color: rgba(255,255,255,0.9);"><span style="color: #fff; font-size: 14px;">✦</span> Personalized to your life</div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 0.6rem; display: flex; align-items: center; gap: 0.6rem; font-size: 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: #fff;"><span style="font-size: 14px;">✦</span> One payment of $22</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 0.25rem; text-align: center;">
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 500; color: var(--text-muted); text-decoration: line-through;">Real value: $1,000+</div>
+            </div>
+            <div class="purchase-price">$22</div>
+            <p style="font-size: 15px; color: var(--accent); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; letter-spacing: 0.03em; margin-bottom: 2rem; text-align: center;">One-time payment · Lifetime access</p>
+
+            <div class="purchase-features">
+                <div class="purchase-feature">Unlimited conversations — no limits, ever</div>
+                <div class="purchase-feature">Interprets your body, life, relationships, and your deepest questions through a soul lens</div>
+                <div class="purchase-feature">Full chakra and sacrament mapping</div>
+                <div class="purchase-feature">Left/right body distinctions</div>
+                <div class="purchase-feature">Ancestral and lineage pattern insights</div>
+                <div class="purchase-feature">Soul guidance question in every response</div>
+            </div>
+            <a href="https://bast-interpreter-kgie.vercel.app" target="_blank" class="cta-primary" id="purchaseBtn" style="display: block; max-width: 300px; margin: 0 auto; text-align: center;">Try It Free</a>
+            <p style="text-align: center; font-size: 13px; color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 1rem; letter-spacing: 0.03em;">&#128274; All conversations are private and confidential</p>
+            <p style="font-size: 17px; color: var(--text-muted); font-family: 'Crimson Text', Georgia, serif; margin-top: 1.5rem; font-style: italic; text-align: center;">Try it free first. If it changes the way you see yourself — and we believe it will — $22 is nothing.</p>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div class="container">
+            <div class="about-inner">
+                <img src="https://bast-landing.vercel.app/HEIRLOOM-1203.jpeg" alt="Zach Borchers" class="about-photo">
+                <div>
+                    <div class="about-name">Zachary Borchers</div>
+                    <div class="about-title">Operating Room Nurse<br>Creator of Body as Soul Tech</div>
+                    <div class="about-bio">Zach built the Body as Soul Tech framework from years of witnessing how the body holds what the mind won't face, combined with deep personal study of mystical theology, sacred science, and the body's role as a spiritual communication system.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        Body as Soul Tech &nbsp;·&nbsp; Spiritual and energetic interpretation — not medical advice &nbsp;·&nbsp; All conversations are private and confidential
+        <div style="margin-top: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem;">
+            <a href="https://www.instagram.com/_zachborchers" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 13px; letter-spacing: 0.05em;">Instagram &nbsp;@bodyassoultech</a>
+            <span style="color: var(--border-mid);">·</span>
+            <a href="https://www.tiktok.com/@bodyassoultech" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 13px; letter-spacing: 0.05em;">TikTok &nbsp;@bodyassoultech</a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+    </script>
+</body>
+</html>
