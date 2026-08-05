@@ -647,7 +647,7 @@
         }
         .offerings-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             margin-top: 2rem;
         }
@@ -698,6 +698,54 @@
         }
         .card-accent-green { border-top: 3px solid var(--accent); }
         .card-accent-gold { border-top: 3px solid var(--accent-pop); }
+
+        .pull-quote {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(1.5rem, 2.8vw, 1.9rem);
+            line-height: 1.5;
+            color: var(--accent);
+            text-align: center;
+            max-width: 720px;
+            margin: 2.25rem auto;
+            padding: 0 1rem;
+        }
+
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .audit-item { text-align: center; }
+
+        .audit-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 0.75rem;
+        }
+
+        .audit-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .audit-prompt {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 700px) {
+            .audit-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 <body>
 
@@ -748,8 +796,119 @@
         </div>
     </section>
 
-    <!-- Offerings -->
+    <!-- Paradigm Shift -->
     <section class="section section-alt">
+        <div class="container">
+            <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                <img src="voltage-wellness-icon.png" alt="" style="width:70px;height:70px;">
+            </div>
+            <div class="section-eyebrow" style="text-align:center;">The paradigm shift</div>
+            <h2 class="section-title" style="text-align:center;">You are more energy than matter</h2>
+            <div class="section-body">
+                <p>Here's something that sounds like a spiritual idea but is actually just physics: everything solid is energy that's slowed down enough to take a shape. Einstein's E=mc² says matter and energy are the same thing, just in different states. So you're not really a body that happens to carry some energy around. You <em>are</em> energy. You're just dense enough right now to sit in a chair and read this.</p>
+                <p class="pull-quote">Most health advice starts and ends with your body. But your body is downstream of a bigger question nobody's asking: how much energy do you actually have, and where does it keep going?</p>
+                <p>Energy wants to move — that's its whole job. What stops it is density: stuff you're carrying that hasn't moved through you yet. A toxin your body hasn't cleared. A feeling from years ago you never actually let yourself feel. A pattern you keep repeating because stopping feels scarier than continuing. None of that is about how you look. It's about how much is stuck versus how much is actually flowing through you. That's a hard thing to look at honestly — most of us are carrying more than we'd like to admit. But you can't heal what you won't look at.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Audit -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">The real work</div>
+            <h2 class="section-title">If you want to heal, start here — not with your symptoms</h2>
+            <div class="section-body">
+                <p>If I were trying to heal something and I felt like I didn't have the energy for it, I wouldn't start with the symptom. I'd start with an honest accounting of where my energy actually goes — the same way you'd finally sit down and look at a budget you've been avoiding. Ask yourself:</p>
+            </div>
+            <div class="audit-grid">
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="22" cy="22" r="17" stroke="#2d5a3d" stroke-width="1.75"/>
+                        <path d="M22 13v9l7 4" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Your day</div>
+                    <div class="audit-prompt">What did you actually do with today?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 18h16l-1.5 14a2 2 0 0 1-2 1.8H17.5a2 2 0 0 1-2-1.8L14 18z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                        <path d="M18 18v-3a4 4 0 0 1 8 0v3" stroke="#2d5a3d" stroke-width="1.75"/>
+                    </svg>
+                    <div class="audit-label">Food &amp; drink</div>
+                    <div class="audit-prompt">What did you put in your body?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 22c4-7 12-11 16-11s12 4 16 11c-4 7-12 11-16 11S10 29 6 22z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                        <circle cx="22" cy="22" r="4.5" stroke="#2d5a3d" stroke-width="1.75"/>
+                    </svg>
+                    <div class="audit-label">What you watch</div>
+                    <div class="audit-prompt">What did you let into your mind?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 30l6-9 6 4 8-13" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M28 12h8v8" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Movement</div>
+                    <div class="audit-prompt">Did your body move, or just sit?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="17" r="5" stroke="#2d5a3d" stroke-width="1.75"/>
+                        <circle cx="28" cy="17" r="5" stroke="#2d5a3d" stroke-width="1.75"/>
+                        <path d="M6 34c1-6 5-9 10-9s9 3 10 9" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
+                        <path d="M22 34c1-6 5-9 10-9s6 2 8 6" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
+                    </svg>
+                    <div class="audit-label">Your people</div>
+                    <div class="audit-prompt">Who did you talk to — and how did you feel after?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 8a15 15 0 1 0 8 27 12 12 0 0 1-8-27z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Sleep</div>
+                    <div class="audit-prompt">How much did you actually get?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 21l14-11 14 11" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19v13a1.5 1.5 0 0 0 1.5 1.5h17a1.5 1.5 0 0 0 1.5-1.5V19" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Your home</div>
+                    <div class="audit-prompt">Does it calm you when you walk in, or add to the noise?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M33 22a11 11 0 1 1-3.5-8" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
+                        <path d="M33 12v6h-6" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">The past</div>
+                    <div class="audit-prompt">Are you still living there?</div>
+                </div>
+            </div>
+            <div class="section-body" style="margin-top: 2.5rem;">
+                <p>None of these are neutral. Every single one is telling you exactly where your energy has been going.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Reframe -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-eyebrow">The reframe</div>
+            <h2 class="section-title">Most of us give our energy to things that never give it back</h2>
+            <div class="section-body">
+                <p>Scrolling. Replaying an argument from three years ago. The news that's built to scare you, not inform you. A friendship that leaves you a little more tired every time you hang up the phone. We do this constantly and call it normal. It's not normal — it's just familiar.</p>
+                <p>The fix isn't complicated, even though it's genuinely hard to live out: start spending your energy on things that actually give it back. Real food. Water. Sleep you're not shorting yourself on. Letting go of what you can't change instead of replaying it. Choosing what you watch as carefully as what you eat. Moving your body in ways that clear you out instead of just burning calories — that's what a sauna or LiveO2 session is actually doing here, not just working up a sweat. And being around people who leave you fuller than they found you.</p>
+                <p class="pull-quote">Real love expands you. Whatever isn't real will contract you — even when it calls itself love.</p>
+                <p>That's what "voltage" actually means here. Not how much you're doing. How much you're holding — and how much you give off to the people around you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offerings -->
+    <section class="section">
         <div class="container">
             <div class="section-eyebrow">How this works</div>
             <h2 class="section-title">Four ways to work with your energy</h2>
@@ -767,10 +926,15 @@
                     <div class="offering-tile-title">Dream Interpretation</div>
                     <div class="offering-tile-desc">Your dreams are processing something your waking mind hasn't gotten to yet. A guided reading to help you understand what.</div>
                 </a>
-                <a href="work-with-me.html" class="offering-tile card-accent-green">
-                    <span class="offering-tile-badge live">Available now</span>
-                    <div class="offering-tile-title">Work With Me</div>
-                    <div class="offering-tile-desc">In-person sessions — the Voltage circuit (LiveO2, sauna, red light, assisted stretching) and one-on-one energetic direction.</div>
+                <a href="work-with-me.html#circuit" class="offering-tile card-accent-green">
+                    <span class="offering-tile-badge soon">Coming soon</span>
+                    <div class="offering-tile-title">The Voltage Circuit</div>
+                    <div class="offering-tile-desc">An in-person circuit — LiveO2, sauna, red light, and assisted stretching — built to clear what's blocking you and help your body hold more energy.</div>
+                </a>
+                <a href="work-with-me.html#direction" class="offering-tile card-accent-gold">
+                    <span class="offering-tile-badge soon">Coming soon</span>
+                    <div class="offering-tile-title">Energetic Direction</div>
+                    <div class="offering-tile-desc">One-on-one guidance focused on where your energy is actually going, and how to redirect it toward the life you actually want.</div>
                 </a>
             </div>
         </div>
