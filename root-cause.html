@@ -173,7 +173,15 @@
             padding: 3rem 0 5rem;
             text-align: center;
             position: relative;
+            background: radial-gradient(ellipse 75% 55% at 50% 0%, rgba(45,90,61,0.08), transparent 70%);
         }
+
+        .section-alt { background: var(--bg-card); }
+
+        .section-warm {
+            background: linear-gradient(135deg, rgba(45,90,61,0.06), rgba(193,127,58,0.06));
+        }
+
 
         .hero-eyebrow {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -574,6 +582,7 @@
         .accordion-item {
             background: var(--bg-card);
             border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -637,6 +646,8 @@
             border-color: rgba(45,90,61,0.3);
             color: #2d5a3d;
         }
+        .card-accent-green { border-top: 3px solid var(--accent); }
+        .card-accent-gold { border-top: 3px solid var(--accent-pop); }
     </style>
 </head>
 <body>
@@ -922,7 +933,7 @@
     </section>
 
     <!-- Problem -->
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
             <div class="section-eyebrow">The gap</div>
             <h2 class="section-title">Low energy isn't random — it has a root cause</h2>
@@ -941,19 +952,19 @@
             <div class="section-eyebrow">Who this is for</div>
             <h2 class="section-title">This is for you if...</h2>
             <div class="audience-grid">
-                <div class="audience-tile">
+                <div class="audience-tile card-accent-green">
                     <div class="audience-num">01</div>
                     <div class="audience-desc">You're chronically tired, burnt out, or dealing with a symptom that won't resolve, and you want to understand the actual root cause instead of just managing it</div>
                 </div>
-                <div class="audience-tile">
+                <div class="audience-tile card-accent-gold">
                     <div class="audience-num">02</div>
                     <div class="audience-desc">You keep seeing the same patterns in your relationships, your work, or your energy levels, and you're ready to understand what's actually driving them</div>
                 </div>
-                <div class="audience-tile">
+                <div class="audience-tile card-accent-green">
                     <div class="audience-num">03</div>
                     <div class="audience-desc">You've already tried the obvious fixes — sleep, diet, supplements — and you're looking for a grounded, specific way to find what's still being missed</div>
                 </div>
-                <div class="audience-tile">
+                <div class="audience-tile card-accent-gold">
                     <div class="audience-num">04</div>
                     <div class="audience-desc">You want a real answer for where your energy is going — not generic wellness advice — and you're ready for a conversation that goes that deep</div>
                 </div>
@@ -962,7 +973,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
             <div class="section-eyebrow">What people are saying</div>
             <h2 class="section-title">Real responses from real people</h2>

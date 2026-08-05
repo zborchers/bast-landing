@@ -173,7 +173,15 @@
             padding: 3rem 0 5rem;
             text-align: center;
             position: relative;
+            background: radial-gradient(ellipse 75% 55% at 50% 0%, rgba(45,90,61,0.08), transparent 70%);
         }
+
+        .section-alt { background: var(--bg-card); }
+
+        .section-warm {
+            background: linear-gradient(135deg, rgba(45,90,61,0.06), rgba(193,127,58,0.06));
+        }
+
 
         .hero-eyebrow {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -669,7 +677,7 @@
         }
 
         .offering-tile-badge.live { background: rgba(45,90,61,0.12); color: var(--accent); }
-        .offering-tile-badge.soon { background: rgba(30,26,22,0.06); color: var(--text-muted); }
+        .offering-tile-badge.soon { background: rgba(193,127,58,0.14); color: var(--accent-pop); }
 
         .offering-tile-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -688,6 +696,8 @@
         @media (max-width: 900px) {
             .offerings-grid { grid-template-columns: 1fr; }
         }
+        .card-accent-green { border-top: 3px solid var(--accent); }
+        .card-accent-gold { border-top: 3px solid var(--accent-pop); }
     </style>
 <body>
 
@@ -733,7 +743,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
             <div class="section-eyebrow">Energetic Direction</div>
             <h2 class="section-title">One-on-one work on where your energy is actually going</h2>
@@ -743,7 +753,7 @@
         </div>
     </section>
 
-    <section class="section" style="text-align: center;">
+    <section class="section section-warm" style="text-align: center;">
         <div class="container">
             <p style="font-size: 17px; color: var(--text-muted); font-family: 'Crimson Text', Georgia, serif; font-style: italic;">Session details, pricing, and booking are being finalized. In the meantime, start with a free Energetic Root Cause Reading.</p>
             <a href="root-cause.html" class="cta-primary" style="margin-top: 1rem;">Start Free Reading</a>
