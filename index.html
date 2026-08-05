@@ -63,6 +63,9 @@
             letter-spacing: 0.02em;
             color: var(--text);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .logo span { color: var(--accent); }
@@ -691,7 +694,7 @@
     <!-- Header -->
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo"><span>Voltage</span> Wellness</a>
+            <a href="index.html" class="logo"><img src="voltage-wellness-icon.png" alt="" style="width:26px;height:26px;flex-shrink:0;"><span>Voltage</span> Wellness</a>
             <nav class="site-nav">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="root-cause.html" class="nav-link">Energetic Root Cause</a>
@@ -714,14 +717,7 @@
     <section class="hero">
         <div class="container">
             <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
-                <svg width="110" height="110" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voltage Wellness">
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="#1e1a16" stroke-width="1" opacity="0.22"/>
-                    <line x1="50" y1="8" x2="50" y2="2" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
-                    <line x1="50" y1="92" x2="50" y2="98" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
-                    <line x1="8" y1="50" x2="2" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
-                    <line x1="92" y1="50" x2="98" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
-                    <path d="M56,14 L32,50 L46,50 L42,86 L72,44 L54,44 Z" fill="#1e1a16"/>
-                </svg>
+                <img src="voltage-wellness-icon.png" alt="Voltage Wellness" style="width:130px;height:130px;">
             </div>
             <div class="hero-eyebrow">Fuel Your Life</div>
             <h1 class="hero-headline">Energy is the real currency of your life.</h1>
