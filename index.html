@@ -177,7 +177,21 @@
             background: radial-gradient(ellipse 75% 55% at 50% 0%, rgba(45,90,61,0.08), transparent 70%);
         }
 
-        .section-alt { background: var(--bg-card); }
+        .voltage-divider {
+            width: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            line-height: 0;
+        }
+
+        .voltage-divider svg {
+            display: block;
+            width: 100%;
+            height: 34px;
+        }
+
+        .voltage-divider .divider-line { stroke: #2d5a3d; }
+        .voltage-divider.gold .divider-line { stroke: var(--accent-pop); }
 
         .section-warm {
             background: linear-gradient(135deg, rgba(45,90,61,0.06), rgba(193,127,58,0.06));
@@ -242,7 +256,7 @@
         }
 
         /* Sections */
-        .section { padding: 2rem 0; border-top: 1px solid var(--border); }
+        .section { padding: 2rem 0; }
 
         .section-eyebrow {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -520,7 +534,7 @@
         }
 
         /* About */
-        .about { padding: 2rem 0; border-top: 1px solid var(--border); }
+        .about { padding: 2rem 0; }
 
         .about-inner {
             display: flex;
@@ -784,6 +798,19 @@
         </div>
     </section>
 
+    <div class="voltage-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1" keyTimes="0;0.475;0.525;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="9" fill="#faf8f4" opacity="0.4"/>
+                <circle r="4.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
+
     <!-- Philosophy -->
     <section class="section">
         <div class="container">
@@ -804,8 +831,21 @@
         </div>
     </section>
 
+    <div class="voltage-divider gold">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1" keyTimes="0;0.475;0.525;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="9" fill="#faf8f4" opacity="0.4"/>
+                <circle r="4.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
+
     <!-- Paradigm Shift -->
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
             <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
                 <svg width="260" height="114" viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -831,6 +871,19 @@
             </div>
         </div>
     </section>
+
+    <div class="voltage-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1" keyTimes="0;0.475;0.525;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="9" fill="#faf8f4" opacity="0.4"/>
+                <circle r="4.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
 
     <!-- Energy Audit -->
     <section class="section">
@@ -913,8 +966,21 @@
         </div>
     </section>
 
+    <div class="voltage-divider gold">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1" keyTimes="0;0.475;0.525;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="9" fill="#faf8f4" opacity="0.4"/>
+                <circle r="4.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
+
     <!-- The Reframe -->
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
             <div class="section-eyebrow">The reframe</div>
             <h2 class="section-title">Most of us give our energy to things that never give it back</h2>
@@ -926,6 +992,19 @@
             </div>
         </div>
     </section>
+
+    <div class="voltage-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1" keyTimes="0;0.475;0.525;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="9" fill="#faf8f4" opacity="0.4"/>
+                <circle r="4.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
 
     <!-- Offerings -->
     <section class="section">
@@ -960,6 +1039,19 @@
         </div>
     </section>
 
+    <div class="voltage-divider gold">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1" keyTimes="0;0.475;0.525;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="9" fill="#faf8f4" opacity="0.4"/>
+                <circle r="4.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
+
     <!-- Founder Story -->
     <section class="about">
         <div class="container">
@@ -973,6 +1065,19 @@
             </div>
         </div>
     </section>
+
+    <div class="voltage-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1" keyTimes="0;0.475;0.525;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="9" fill="#faf8f4" opacity="0.4"/>
+                <circle r="4.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
 
     <!-- Closing CTA -->
     <section class="section section-warm" style="text-align: center;">
@@ -1002,6 +1107,13 @@
         function toggleMobileNav() {
             document.querySelector('.nav-toggle').classList.toggle('open');
             document.getElementById('mobileNav').classList.toggle('open');
+        }
+    </script>
+    <script>
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.voltage-divider svg').forEach(function(svg) {
+                if (svg.pauseAnimations) svg.pauseAnimations();
+            });
         }
     </script>
 </body>
