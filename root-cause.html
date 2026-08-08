@@ -710,23 +710,13 @@
             <script>
                 var vwBaseQuestions = [
                     { id: "diagnosis", q: "Do you have a medical diagnosis (or diagnoses) connected to what's going on?", detailLabel: "If yes, what's the diagnosis? (optional, but helpful)", options: ["Yes","Yes, and I also want to explore something separate from that diagnosis","No diagnosis — just exploring a symptom or health issue"] },
-                    { id: "region", q: "Where in the body is this happening?", detailLabel: "Anything else to add about where or how it shows up? (optional)", options: ["Head","Neck","Throat","Shoulders","Chest","Heart","Upper Back","Lower Back","Abdomen","Gut","Hips","Pelvis","Legs","Knees","Ankles","Feet","Arms","Hands","Somewhere else"] },
-                    { id: "side", q: "Is it more on the left side, the right side, centered, or on both sides?", detailLabel: "Anything else to add? (optional)", options: ["Left side","Right side","Centered","Both sides"] },
-                    { id: "plane", q: "Do you feel it more toward the front, more toward the back, or both at once?", detailLabel: "Anything else to add? (optional)", options: ["Front","Back","Both at once"] },
-                    { id: "quality", q: "How would you describe it?", detailLabel: "Anything else to add about how it feels? (optional)", options: ["Sharp","Dull ache","Burning","Tight","Throbbing","Numb","Cramping","Tingling"] },
-                    { id: "pattern", q: "Is this the first time you've had this, does it come and go, or is it constant / ongoing?", detailLabel: "Anything else to add about the pattern? (optional)", options: ["First time","Comes and goes","Constant / ongoing"] },
-                    { id: "context", q: "What's actually going on in your life right now — what's been on your mind or on your plate?", detailLabel: "Explain more — what's going on, specifically?", options: ["Work stress","Relationship or family stress","Grief or loss","Major life transition","Financial stress","Caregiving responsibilities"] }
+                    { id: "region", q: "Where in the body is this happening?", detailLabel: "Anything else to add about where or how it shows up? (optional)", options: ["Head","Neck","Throat","Shoulders","Chest","Heart","Upper Back","Lower Back","Abdomen","Gut","Hips","Pelvis","Legs","Knees","Ankles","Feet","Arms","Hands","Somewhere else"] }
                 ];
 
                 var VW_DIAGNOSIS_YES = "Yes";
                 var VW_DIAGNOSIS_ALSO_SEPARATE = "Yes, and I also want to explore something separate from that diagnosis";
                 var VW_SEPARATE_REFRAME = {
-                    region: "Setting the diagnosis aside for a moment — where in the body is this separate thing happening?",
-                    side: "For this separate thing — is it more on the left side, the right side, centered, or on both sides?",
-                    plane: "For this separate thing — do you feel it more toward the front, more toward the back, or both at once?",
-                    quality: "How would you describe this separate thing?",
-                    pattern: "Is this separate thing the first time you've had it, does it come and go, or is it constant / ongoing?",
-                    context: "Setting the diagnosis aside — what's actually going on in your life right now connected to this other thing?"
+                    region: "Setting the diagnosis aside for a moment — where in the body is this separate thing happening?"
                 };
                 var VW_DIAGNOSIS_NAME_QUESTION = {
                     id: "diagnosisName",
@@ -840,7 +830,7 @@
 
                 function vwFinish() {
                     var box = document.getElementById('vw-quiz-box');
-                    box.innerHTML = '<div style="text-align:center; font-family: \'Plus Jakarta Sans\', sans-serif; font-size: 15px; color: #5c5147; padding: 0.5rem 0;">Building your free Initial Reading…</div>';
+                    box.innerHTML = '<div style="text-align:center; font-family: \'Plus Jakarta Sans\', sans-serif; font-size: 15px; color: #5c5147; padding: 0.5rem 0;">Taking you to the rest of your reading…</div>';
                     var params = new URLSearchParams();
                     vwQuestions.forEach(function(q) {
                         var ans = vwAnswers[q.id] || { selected: [], detail: '' };
