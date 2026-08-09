@@ -697,13 +697,59 @@
         }
         .card-accent-green { border-top: 3px solid var(--accent); }
         .card-accent-gold { border-top: 3px solid var(--accent-pop); }
+        .charge-rect {
+            transform-origin: 50px 85px;
+            animation: chargeUp 4.5s ease-in-out infinite;
+        }
+        .breathe-group {
+            transform-origin: 50px 50px;
+            animation: breatheSync 4.5s ease-in-out infinite;
+        }
+        .flash-bolt {
+            animation: flickerFlash 4.5s linear infinite;
+        }
+        @keyframes chargeUp {
+            0% { transform: scaleY(0.02); }
+            65% { transform: scaleY(1); }
+            70% { transform: scaleY(1); }
+            71% { transform: scaleY(0.02); }
+            100% { transform: scaleY(0.02); }
+        }
+        @keyframes breatheSync {
+            0% { transform: scale(1); }
+            32.5% { transform: scale(1.08); }
+            65% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes flickerFlash {
+            0%, 62%, 100% { opacity: 0; }
+            63% { opacity: 0.9; }
+            64.5% { opacity: 0.15; }
+            66% { opacity: 0.85; }
+            67.5% { opacity: 0.1; }
+            69% { opacity: 0.7; }
+            71.5% { opacity: 0; }
+        }
+        .voltage-divider {
+            width: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            line-height: 0;
+        }
+        .voltage-divider svg {
+            display: block;
+            width: 100%;
+            height: 34px;
+        }
+        .voltage-divider .divider-line { stroke: #2d5a3d; }
+        .voltage-divider.gold .divider-line { stroke: var(--accent-pop); }
     </style>
 <body>
 
     <!-- Header -->
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo"><span>Vo<svg width="9" height="20" viewBox="32 14 40 72" style="display:inline-block;vertical-align:-4px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M56,14 L32,50 L46,50 L42,86 L72,44 L54,44 Z" fill="currentColor"/></svg>tage</span> Wellness</a>
+            <a href="index.html" class="logo"><span>Vo<svg width="9" height="20" viewBox="32 17 40 66" style="display:inline-block;vertical-align:-4px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="currentColor"/></svg>tage</span> Wellness</a>
             <nav class="site-nav">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="root-cause.html" class="nav-link">Energetic Root Cause</a>
@@ -732,9 +778,16 @@
                     <line x1="50" y1="92" x2="50" y2="98" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
                     <line x1="8" y1="50" x2="2" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
                     <line x1="92" y1="50" x2="98" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
-                    <path d="M56,14 L32,50 L46,50 L42,86 L72,44 L54,44 Z" fill="#1e1a16">
-                        <animate attributeName="fill" values="#1e1a16;#2d5a3d;#1e1a16" dur="4s" repeatCount="indefinite"/>
-                    </path>
+                    <defs>
+                        <clipPath id="chargeClip">
+                            <rect x="15" y="15" width="70" height="70" class="charge-rect"/>
+                        </clipPath>
+                    </defs>
+                    <g class="breathe-group">
+                        <path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="#1e1a16"/>
+                        <path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="#2d5a3d" clip-path="url(#chargeClip)"/>
+                        <path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="#faf8f4" class="flash-bolt"/>
+                    </g>
                 </svg>
             </div>
             <div class="hero-eyebrow">In-Person · Coming Soon</div>
@@ -742,6 +795,12 @@
             <p class="hero-sub">In-person sessions built around the same principle as everything else here: your energy is specific, and so is what it needs. Full details and booking are on the way — here's what's coming.</p>
         </div>
     </section>
+
+    <div class="voltage-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
 
     <!-- Offerings preview -->
     <section class="section" id="circuit" style="scroll-margin-top: 90px;">
@@ -754,6 +813,12 @@
         </div>
     </section>
 
+    <div class="voltage-divider gold">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
     <section class="section section-alt" id="direction" style="scroll-margin-top: 90px;">
         <div class="container">
             <div class="section-eyebrow">Energetic Direction</div>
@@ -763,6 +828,12 @@
             </div>
         </div>
     </section>
+
+    <div class="voltage-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
 
     <section class="section section-warm" style="text-align: center;">
         <div class="container">
