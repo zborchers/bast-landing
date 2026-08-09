@@ -834,7 +834,7 @@
                     var needsDetail = vwNeedsSomewhereElseDetail();
                     var labelEl = document.getElementById('vw-quiz-detail-label');
                     var boxEl = document.getElementById('vw-quiz-detail-box');
-                    labelEl.textContent = needsDetail ? 'Where is this happening, specifically? (required)' : q.detailLabel;
+                    labelEl.textContent = needsDetail ? 'You selected somewhere else — where is this happening, specifically?' : q.detailLabel;
                     labelEl.style.color = needsDetail ? '#2d5a3d' : '#5c5147';
                     boxEl.style.borderColor = needsDetail ? '#2d5a3d' : 'rgba(100,80,60,0.18)';
                 }
