@@ -765,7 +765,7 @@
 
             <script>
                 var vwBaseQuestions = [
-                    { id: "diagnosis", singleSelect: true, q: "Do you have a medical diagnosis (or diagnoses)?", detailLabel: "If yes, what's the diagnosis? (optional, but helpful)", options: ["Yes","Yes, and I also want to explore something separate from that diagnosis","No diagnosis — just exploring a symptom or health issue"] },
+                    { id: "diagnosis", singleSelect: true, q: "Do you have a medical diagnosis (or diagnoses)?", detailLabel: "If yes, what's the diagnosis?", options: ["Yes","Yes, and I also want to explore something separate from that diagnosis","No diagnosis — just exploring a symptom or health issue"] },
                     { id: "region", q: "Where in the body is this happening?", detailLabel: "Anything else to add about where or how it shows up? (optional)", options: ["Head","Neck","Throat","Shoulders","Chest","Heart","Upper Back","Lower Back","Abdomen","Gut","Hips","Pelvis","Legs","Knees","Ankles","Feet","Arms","Hands","Somewhere else"] }
                 ];
 
@@ -853,6 +853,7 @@
                         btn.style.borderRadius = '10px';
                         btn.style.cursor = 'pointer';
                         btn.style.transition = 'all 0.15s';
+                        btn.style.textAlign = 'left';
                         btn.style.background = isSelected ? '#2d5a3d' : '#ede8dd';
                         btn.style.color = isSelected ? '#fff' : '#1e1a16';
                         btn.style.border = '1.5px solid ' + (isSelected ? '#2d5a3d' : 'rgba(100,80,60,0.18)');
