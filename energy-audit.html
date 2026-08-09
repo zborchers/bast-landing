@@ -193,12 +193,13 @@
 
         .hero-headline {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(3rem, 6.5vw, 5rem);
+            font-size: clamp(2.6rem, 5vw, 4rem);
             font-weight: 800;
             line-height: 1.08;
             letter-spacing: -0.02em;
             margin-bottom: 1.5rem;
             color: var(--text);
+            white-space: nowrap;
         }
 
         .hero-headline em {
@@ -574,7 +575,7 @@
             .audience-grid,
             .purchase-features { margin-left: auto; margin-right: auto; grid-template-columns: 1fr; }
             .about-inner { flex-direction: column; align-items: center; text-align: center; }
-            .hero-headline { font-size: 2.4rem; }
+            .hero-headline { font-size: 2.4rem; white-space: normal; }
             header { padding: 1.25rem 1.5rem; }
         }
         .accordion-item {
@@ -646,6 +647,42 @@
         }
         .card-accent-green { border-top: 3px solid var(--accent); }
         .card-accent-gold { border-top: 3px solid var(--accent-pop); }
+
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .audit-item { text-align: center; }
+
+        .audit-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 0.75rem;
+        }
+
+        .audit-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .audit-prompt {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 700px) {
+            .audit-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
 </head>
 <body>
@@ -743,6 +780,87 @@
                 <p>Most of us were never taught to actually look for why our energy is gone — we just manage the symptoms. More coffee. More sleep that doesn't fix it. A supplement stack that helps a little and stops. Fatigue, chronic symptoms, and burnout aren't usually a mystery. They're the result of your energy being diverted somewhere specific, for long enough that your body started showing the cost.</p>
                 <p>Your body can't lie about this the way your mind can talk itself out of noticing. When you're exhausted every single day despite doing everything "right," that's not a personal failing — it's a signal that something specific is draining you faster than you can recover. When a symptom keeps showing up in the same place no matter what you try, that's usually not random either — it's where the energetic cost of a pattern has been accumulating.</p>
                 <p><em>Once you find the actual root cause, you stop managing the fatigue and start addressing what's actually causing it.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Real Work -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">The real work</div>
+            <h2 class="section-title">If you want to heal, start here — not with your symptoms</h2>
+            <div class="section-body">
+                <p>Energetic health doesn't start by looking at your symptoms. It starts by taking an honest look at where your energy is going every day. Ask yourself:</p>
+            </div>
+            <div class="audit-grid">
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="22" cy="22" r="17" stroke="#2d5a3d" stroke-width="1.75"/>
+                        <path d="M22 13v9l7 4" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Your day</div>
+                    <div class="audit-prompt">What did you actually do with today?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 18h16l-1.5 14a2 2 0 0 1-2 1.8H17.5a2 2 0 0 1-2-1.8L14 18z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                        <path d="M18 18v-3a4 4 0 0 1 8 0v3" stroke="#2d5a3d" stroke-width="1.75"/>
+                    </svg>
+                    <div class="audit-label">Food &amp; drink</div>
+                    <div class="audit-prompt">What did you put in your body?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 22c4-7 12-11 16-11s12 4 16 11c-4 7-12 11-16 11S10 29 6 22z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                        <circle cx="22" cy="22" r="4.5" stroke="#2d5a3d" stroke-width="1.75"/>
+                    </svg>
+                    <div class="audit-label">What you watch</div>
+                    <div class="audit-prompt">What did you let into your mind?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 30l6-9 6 4 8-13" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M28 12h8v8" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Movement</div>
+                    <div class="audit-prompt">Did your body move, or just sit?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="17" r="5" stroke="#2d5a3d" stroke-width="1.75"/>
+                        <circle cx="28" cy="17" r="5" stroke="#2d5a3d" stroke-width="1.75"/>
+                        <path d="M6 34c1-6 5-9 10-9s9 3 10 9" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
+                        <path d="M22 34c1-6 5-9 10-9s6 2 8 6" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
+                    </svg>
+                    <div class="audit-label">Your people</div>
+                    <div class="audit-prompt">Who did you talk to — and how did you feel after?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 8a15 15 0 1 0 8 27 12 12 0 0 1-8-27z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Sleep</div>
+                    <div class="audit-prompt">How much did you actually get?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 21l14-11 14 11" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19v13a1.5 1.5 0 0 0 1.5 1.5h17a1.5 1.5 0 0 0 1.5-1.5V19" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">Your home</div>
+                    <div class="audit-prompt">Does it calm you when you walk in, or add to the noise?</div>
+                </div>
+                <div class="audit-item">
+                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M33 22a11 11 0 1 1-3.5-8" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
+                        <path d="M33 12v6h-6" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="audit-label">The past</div>
+                    <div class="audit-prompt">Are you still living there?</div>
+                </div>
+            </div>
+            <div class="section-body" style="margin-top: 2.5rem;">
+                <p>Every one of those is where density actually comes from. The food and drink that don't fuel you. The screens that drain you instead of restoring you. The people who leave you emptier than they found you. The sleep you're not getting. The home that adds to the noise instead of calming it. The past you're still carrying. All of it builds up as density, and the denser you are, the less your energy can move. That's what getting lighter actually means. It was never about how you look. It's about how little your body and your life have to carry before your energy can move freely again.</p>
             </div>
         </div>
     </section>
