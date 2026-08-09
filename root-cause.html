@@ -755,9 +755,12 @@
                     <div id="vw-quiz-detail-box" style="background: #faf8f4; border: 1px solid rgba(100,80,60,0.18); border-radius: 8px; padding: 12px 14px;">
                         <textarea id="vw-quiz-textarea" rows="2" placeholder="Type here..." style="width: 100%; background: transparent; border: none; outline: none; font-family: 'Crimson Text', Georgia, serif; font-size: 17px; line-height: 1.6; color: #1e1a16; resize: none; display: block;" oninput="vwOnTextInput()"></textarea>
                     </div>
-                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; margin-top: 0.6rem;">
-                        <div id="vw-quiz-required-hint" style="display: none; font-size: 12px; color: rgba(30,26,22,0.4); font-family: 'Plus Jakarta Sans', sans-serif; font-style: italic;">Please fill this in to continue</div>
-                        <button id="vw-quiz-next-btn" onclick="vwSubmit()" style="background: #2d5a3d; border: none; border-radius: 6px; padding: 10px 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; color: #fff; cursor: pointer; letter-spacing: 0.04em;">Next &rarr;</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; margin-top: 0.6rem;">
+                        <button id="vw-quiz-back-btn" onclick="vwGoBack()" style="background: transparent; border: none; color: rgba(30,26,22,0.4); padding: 8px 4px; cursor: pointer; font-size: 13px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; letter-spacing: 0.03em; visibility: hidden;">&larr; Back</button>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div id="vw-quiz-required-hint" style="display: none; font-size: 12px; color: rgba(30,26,22,0.4); font-family: 'Plus Jakarta Sans', sans-serif; font-style: italic;">Please fill this in to continue</div>
+                            <button id="vw-quiz-next-btn" onclick="vwSubmit()" style="background: #2d5a3d; border: none; border-radius: 6px; padding: 10px 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; color: #fff; cursor: pointer; letter-spacing: 0.04em;">Next &rarr;</button>
+                        </div>
                     </div>
                 </div>
                 <div style="text-align: center; font-size: 12px; color: rgba(30,26,22,0.38); margin-top: 0.75rem; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.03em;">🔒 Private &amp; confidential &nbsp;·&nbsp; No account required</div>
@@ -812,16 +815,24 @@
 
                 function vwRender() {
                     var q = vwQuestions[vwIndex];
-                    vwSelected = [];
+                    var prevAnswer = vwAnswers[q.id];
+                    vwSelected = prevAnswer ? prevAnswer.selected.slice() : [];
                     document.getElementById('vw-quiz-progress').textContent = 'Question ' + (vwIndex + 1) + ' of ' + vwQuestions.length;
                     document.getElementById('vw-quiz-question').textContent = q.q;
-                    document.getElementById('vw-quiz-textarea').value = '';
+                    document.getElementById('vw-quiz-textarea').value = prevAnswer ? prevAnswer.detail : '';
                     var hintEl = document.getElementById('vw-quiz-select-hint');
                     hintEl.style.display = q.options.length > 0 ? 'block' : 'none';
                     hintEl.textContent = q.singleSelect ? 'Select one' : 'Select all that apply';
+                    document.getElementById('vw-quiz-back-btn').style.visibility = vwIndex > 0 ? 'visible' : 'hidden';
                     vwRenderOptions();
                     vwUpdateDetailLabel();
                     vwUpdateRequiredState();
+                }
+
+                function vwGoBack() {
+                    if (vwIndex === 0) return;
+                    vwIndex--;
+                    vwRender();
                 }
 
                 function vwNeedsSomewhereElseDetail() {
