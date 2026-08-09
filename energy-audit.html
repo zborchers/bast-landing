@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voltage Wellness — Fuel Your Life</title>
+    <title>Energy Audit — Voltage Wellness</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -168,27 +168,13 @@
 
         /* Hero */
         .hero {
-            padding: 2rem 0;
+            padding: 3rem 0 5rem;
             text-align: center;
             position: relative;
             background: radial-gradient(ellipse 75% 55% at 50% 0%, rgba(45,90,61,0.08), transparent 70%);
         }
 
-        .voltage-divider {
-            width: 100%;
-            overflow: hidden;
-            background: var(--bg);
-            line-height: 0;
-        }
-
-        .voltage-divider svg {
-            display: block;
-            width: 100%;
-            height: 34px;
-        }
-
-        .voltage-divider .divider-line { stroke: #2d5a3d; }
-        .voltage-divider.gold .divider-line { stroke: var(--accent-pop); }
+        .section-alt { background: var(--bg-card); }
 
         .section-warm {
             background: linear-gradient(135deg, rgba(45,90,61,0.06), rgba(193,127,58,0.06));
@@ -253,7 +239,7 @@
         }
 
         /* Sections */
-        .section { padding: 2rem 0; }
+        .section { padding: 5rem 0; border-top: 1px solid var(--border); }
 
         .section-eyebrow {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -531,7 +517,7 @@
         }
 
         /* About */
-        .about { padding: 2rem 0; }
+        .about { padding: 5rem 0; border-top: 1px solid var(--border); }
 
         .about-inner {
             display: flex;
@@ -594,6 +580,7 @@
         .accordion-item {
             background: var(--bg-card);
             border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -657,108 +644,13 @@
             border-color: rgba(45,90,61,0.3);
             color: #2d5a3d;
         }
-        .offerings-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .offering-tile {
-            display: block;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.75rem 1.5rem;
-            transition: border-color 0.2s, transform 0.2s;
-            text-decoration: none;
-        }
-
-        .offering-tile:hover { border-color: var(--accent-border); transform: translateY(-2px); }
-
-        .offering-tile-badge {
-            display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 3px 9px;
-            border-radius: 100px;
-            margin-bottom: 0.9rem;
-        }
-
-        .offering-tile-badge.live { background: rgba(45,90,61,0.12); color: var(--accent); }
-        .offering-tile-badge.soon { background: rgba(193,127,58,0.14); color: var(--accent-pop); }
-
-        .offering-tile-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.6rem;
-        }
-
-        .offering-tile-desc {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 900px) {
-            .offerings-grid { grid-template-columns: 1fr; }
-        }
         .card-accent-green { border-top: 3px solid var(--accent); }
         .card-accent-gold { border-top: 3px solid var(--accent-pop); }
-
-        .pull-quote {
-            font-family: 'Crimson Text', Georgia, serif;
-            font-style: italic;
-            font-size: clamp(1.5rem, 2.8vw, 1.9rem);
-            line-height: 1.5;
-            color: var(--accent);
-            text-align: center;
-            max-width: 720px;
-            margin: 2.25rem auto;
-            padding: 0 1rem;
-        }
-
-        .audit-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem 1rem;
-            margin-top: 2.5rem;
-        }
-
-        .audit-item { text-align: center; }
-
-        .audit-icon {
-            width: 44px;
-            height: 44px;
-            margin: 0 auto 0.75rem;
-        }
-
-        .audit-label {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            color: var(--text);
-            margin-bottom: 0.3rem;
-        }
-
-        .audit-prompt {
-            font-family: 'Crimson Text', Georgia, serif;
-            font-size: 15px;
-            font-style: italic;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        @media (max-width: 700px) {
-            .audit-grid { grid-template-columns: repeat(2, 1fr); }
-        }
     </style>
+</head>
+<body>
+
+    <!-- Header -->
 <body>
 
     <!-- Header -->
@@ -766,9 +658,9 @@
         <div class="header-inner">
             <a href="index.html" class="logo"><span>Vo<svg width="9" height="20" viewBox="32 14 40 72" style="display:inline-block;vertical-align:-4px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M56,14 L32,50 L46,50 L42,86 L72,44 L54,44 Z" fill="currentColor"/></svg>tage</span> Wellness</a>
             <nav class="site-nav">
-                <a href="index.html" class="nav-link active">Home</a>
+                <a href="index.html" class="nav-link">Home</a>
                 <a href="root-cause.html" class="nav-link">Energetic Root Cause</a>
-                <a href="energy-audit.html" class="nav-link">Energy Audit</a>
+                <a href="energy-audit.html" class="nav-link active">Energy Audit</a>
                 <a href="work-with-me.html" class="nav-link">Work With Me</a>
             </nav>
             <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle menu">
@@ -776,9 +668,9 @@
             </button>
         </div>
         <nav class="mobile-nav" id="mobileNav">
-            <a href="index.html" class="mobile-nav-link active">Home</a>
+            <a href="index.html" class="mobile-nav-link">Home</a>
             <a href="root-cause.html" class="mobile-nav-link">Energetic Root Cause</a>
-            <a href="energy-audit.html" class="mobile-nav-link">Energy Audit</a>
+            <a href="energy-audit.html" class="mobile-nav-link active">Energy Audit</a>
             <a href="work-with-me.html" class="mobile-nav-link">Work With Me</a>
         </nav>
     </header>
@@ -787,37 +679,19 @@
     <section class="hero">
         <div class="container">
             <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
-                <img src="voltage-wellness-icon.png" alt="Voltage Wellness" style="width:130px;height:130px;">
+                <svg width="110" height="110" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voltage Wellness">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#1e1a16" stroke-width="1" opacity="0.22"/>
+                    <line x1="50" y1="8" x2="50" y2="2" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
+                    <line x1="50" y1="92" x2="50" y2="98" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
+                    <line x1="8" y1="50" x2="2" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
+                    <line x1="92" y1="50" x2="98" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
+                    <path d="M56,14 L32,50 L46,50 L42,86 L72,44 L54,44 Z" fill="#1e1a16"/>
+                </svg>
             </div>
-            <div class="hero-eyebrow">Fuel Your Life</div>
-            <h1 class="hero-headline">Energy is the <em>currency</em> of your life.</h1>
-            <p class="hero-sub">Voltage Wellness helps you understand where your energy is going and direct it toward the life you want.</p>
-        </div>
-    </section>
-
-    <div class="voltage-divider gold">
-        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <g>
-                <animateMotion dur="7.8s" repeatCount="indefinite" calcMode="linear"
-                    keyPoints="0;0.464;0.536;1;1" keyTimes="0;0.1705;0.1824;0.359;1"
-                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
-                <circle r="13" fill="#faf8f4" opacity="0.4"/>
-                <circle r="6.5" fill="#faf8f4"/>
-            </g>
-        </svg>
-    </div>
-
-    <!-- Paradigm Shift -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title" style="text-align:center;">You're more energy than matter</h2>
-            <div class="section-body">
-                <p>We're living through an evolutionary shift, one that asks us to rethink what we've long assumed about the body. For generations, health has been treated as a purely physical matter, something to be measured, medicated, and managed. But your body isn't only physical. It exists across many planes at once: physical, yes, but also energetic, emotional, mental, relational, and spiritual, all woven together rather than separated into parts. Your body isn't separate from your energy. It's your energy, held together in a shape solid enough for you to feel.</p>
-                <p class="pull-quote">Physical health follows energetic health. It doesn't lead it.</p>
-                <p>Most health advice never makes it past the physical layer, and when it tries, it tends to splinter into disconnected specialties rather than gather into one coherent picture. Our current model treats the symptom in front of it without asking the question underneath every symptom: how much energy do you actually have, and where has it been going?</p>
-                <p>Energy is meant to move, to transform, to create. When it can't, it builds up as density, and that density eventually surfaces in the body, whether as a symptom, a diagnosis, or an ache that won't resolve. This is why physical health and energetic health aren't two different things, only two different angles on the same one. Nothing appears in the body without first appearing in the energy beneath it. The energetic always arrives first. The physical follows.</p>
-            </div>
+            <div class="hero-eyebrow">Coming Soon</div>
+            <h1 class="hero-headline">Get your <em>energy</em> back.</h1>
+            <p class="hero-sub">A complete accounting of where your energy actually goes — your day, your food, your relationships, your body, your home — built to show you exactly where it's leaking, and how to get it back. The full Energy Audit is still being built. In the meantime, the Energetic Root Cause Reading is live and free right now.</p>
+            <a href="root-cause.html" class="cta-primary">Try the Root Cause Reading</a>
         </div>
     </section>
 
@@ -834,83 +708,22 @@
         </svg>
     </div>
 
-    <!-- Energy Audit -->
+    <!-- Philosophy -->
     <section class="section">
         <div class="container">
-            <div class="section-eyebrow">The real work</div>
-            <h2 class="section-title">If you want to heal, start here — not with your symptoms</h2>
+            <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                <svg width="88" height="88" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="50" cy="50" r="48" fill="none" stroke="#2d5a3d" stroke-width="1.5" opacity="0.18"/>
+                    <circle cx="50" cy="50" r="34" fill="none" stroke="#2d5a3d" stroke-width="1.5" opacity="0.35"/>
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="#2d5a3d" stroke-width="1.75" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="6" fill="#2d5a3d"/>
+                </svg>
+            </div>
+            <h2 class="section-title" style="text-align:center;">Fatigue is information</h2>
             <div class="section-body">
-                <p>Energetic health doesn't start by looking at your symptoms. It starts by taking an honest look at where your energy is going every day. Ask yourself:</p>
-            </div>
-            <div class="audit-grid">
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="22" cy="22" r="17" stroke="#2d5a3d" stroke-width="1.75"/>
-                        <path d="M22 13v9l7 4" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <div class="audit-label">Your day</div>
-                    <div class="audit-prompt">What did you actually do with today?</div>
-                </div>
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 18h16l-1.5 14a2 2 0 0 1-2 1.8H17.5a2 2 0 0 1-2-1.8L14 18z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
-                        <path d="M18 18v-3a4 4 0 0 1 8 0v3" stroke="#2d5a3d" stroke-width="1.75"/>
-                    </svg>
-                    <div class="audit-label">Food &amp; drink</div>
-                    <div class="audit-prompt">What did you put in your body?</div>
-                </div>
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 22c4-7 12-11 16-11s12 4 16 11c-4 7-12 11-16 11S10 29 6 22z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
-                        <circle cx="22" cy="22" r="4.5" stroke="#2d5a3d" stroke-width="1.75"/>
-                    </svg>
-                    <div class="audit-label">What you watch</div>
-                    <div class="audit-prompt">What did you let into your mind?</div>
-                </div>
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 30l6-9 6 4 8-13" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M28 12h8v8" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <div class="audit-label">Movement</div>
-                    <div class="audit-prompt">Did your body move, or just sit?</div>
-                </div>
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="17" r="5" stroke="#2d5a3d" stroke-width="1.75"/>
-                        <circle cx="28" cy="17" r="5" stroke="#2d5a3d" stroke-width="1.75"/>
-                        <path d="M6 34c1-6 5-9 10-9s9 3 10 9" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
-                        <path d="M22 34c1-6 5-9 10-9s6 2 8 6" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
-                    </svg>
-                    <div class="audit-label">Your people</div>
-                    <div class="audit-prompt">Who did you talk to — and how did you feel after?</div>
-                </div>
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 8a15 15 0 1 0 8 27 12 12 0 0 1-8-27z" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
-                    </svg>
-                    <div class="audit-label">Sleep</div>
-                    <div class="audit-prompt">How much did you actually get?</div>
-                </div>
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 21l14-11 14 11" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 19v13a1.5 1.5 0 0 0 1.5 1.5h17a1.5 1.5 0 0 0 1.5-1.5V19" stroke="#2d5a3d" stroke-width="1.75" stroke-linejoin="round"/>
-                    </svg>
-                    <div class="audit-label">Your home</div>
-                    <div class="audit-prompt">Does it calm you when you walk in, or add to the noise?</div>
-                </div>
-                <div class="audit-item">
-                    <svg class="audit-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M33 22a11 11 0 1 1-3.5-8" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round"/>
-                        <path d="M33 12v6h-6" stroke="#2d5a3d" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <div class="audit-label">The past</div>
-                    <div class="audit-prompt">Are you still living there?</div>
-                </div>
-            </div>
-            <div class="section-body" style="margin-top: 2.5rem;">
-                <p>Every one of those is where density actually comes from. The food and drink that don't fuel you. The screens that drain you instead of restoring you. The people who leave you emptier than they found you. The sleep you're not getting. The home that adds to the noise instead of calming it. The past you're still carrying. All of it builds up as density, and the denser you are, the less your energy can move. That's what getting lighter actually means. It was never about how you look. It's about how little your body and your life have to carry before your energy can move freely again.</p>
+                <p>Your body is always communicating with you, even when you've stopped listening. Your symptoms, your exhaustion, the heaviness you carry through the day: none of it's random, and none of it's a personal failing. It's information, offered patiently, telling you that what you've been calling life is closer to survival. You were built for more than that. You were built to be full of life, not to move through your days running on fumes.</p>
+                <p>That's the work Voltage Wellness exists to do: to help you find where your energy is actually leaking, the very leaks behind your fatigue and your symptoms, and to help you close them so that living, rather than merely enduring, becomes possible again.</p>
+                <p class="pull-quote">Your body and your energy are not separate from the rest of your life.</p>
             </div>
         </div>
     </section>
@@ -921,80 +734,59 @@
         </svg>
     </div>
 
-    <!-- The Reframe -->
-    <section class="section">
+    <!-- The Gap -->
+    <section class="section section-alt">
         <div class="container">
-            <div class="section-eyebrow">The reframe</div>
-            <h2 class="section-title">Most of us give our energy to things that never give it back</h2>
+            <div class="section-eyebrow">The gap</div>
+            <h2 class="section-title">Low energy isn't random — it has a root cause</h2>
             <div class="section-body">
-                <p>Scrolling. Replaying an old argument. News built to scare you. A friendship that leaves you a little more tired every time you hang up. We call this normal because it's familiar, not because it's good for us.</p>
-                <p>The fix: spend your energy on what actually gives it back. Real food. Water. Sleep. Letting go of what you can't change. Moving your body somewhere like a sauna or LiveO2 session, built to clear you out, not just burn calories. Being around people who leave you fuller than they found you.</p>
-                <p class="pull-quote">Real love expands you. Whatever isn't real will contract you — even when it calls itself love.</p>
-                <p>That's what "voltage" means here. Not how much you're doing. How much you're holding, and how much you give off.</p>
+                <p>Most of us were never taught to actually look for why our energy is gone — we just manage the symptoms. More coffee. More sleep that doesn't fix it. A supplement stack that helps a little and stops. Fatigue, chronic symptoms, and burnout aren't usually a mystery. They're the result of your energy being diverted somewhere specific, for long enough that your body started showing the cost.</p>
+                <p>Your body can't lie about this the way your mind can talk itself out of noticing. When you're exhausted every single day despite doing everything "right," that's not a personal failing — it's a signal that something specific is draining you faster than you can recover. When a symptom keeps showing up in the same place no matter what you try, that's usually not random either — it's where the energetic cost of a pattern has been accumulating.</p>
+                <p><em>Once you find the actual root cause, you stop managing the fatigue and start addressing what's actually causing it.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience -->
+    <section class="section">
+        <div class="wide-container" style="max-width: 1100px; padding: 0 2rem; margin: 0 auto;">
+            <div class="section-eyebrow">Who this is for</div>
+            <h2 class="section-title">This is for you if...</h2>
+            <div class="audience-grid">
+                <div class="audience-tile card-accent-green">
+                    <div class="audience-num">01</div>
+                    <div class="audience-desc">You're chronically tired, burnt out, or dealing with a symptom that won't resolve, and you want to understand the actual root cause instead of just managing it</div>
+                </div>
+                <div class="audience-tile card-accent-gold">
+                    <div class="audience-num">02</div>
+                    <div class="audience-desc">You keep seeing the same patterns in your relationships, your work, or your energy levels, and you're ready to understand what's actually driving them</div>
+                </div>
+                <div class="audience-tile card-accent-green">
+                    <div class="audience-num">03</div>
+                    <div class="audience-desc">You've already tried the obvious fixes — sleep, diet, supplements — and you're looking for a grounded, specific way to find what's still being missed</div>
+                </div>
+                <div class="audience-tile card-accent-gold">
+                    <div class="audience-num">04</div>
+                    <div class="audience-desc">You want a real answer for where your energy is going — not generic wellness advice — and you're ready for a conversation that goes that deep</div>
+                </div>
             </div>
         </div>
     </section>
 
     <div class="voltage-divider">
-        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <g>
-                <animateMotion dur="7.8s" repeatCount="indefinite" calcMode="linear"
-                    keyPoints="0;0.464;0.536;1;1" keyTimes="0;0.1705;0.1824;0.359;1"
-                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
-                <circle r="13" fill="#faf8f4" opacity="0.4"/>
-                <circle r="6.5" fill="#faf8f4"/>
-            </g>
-        </svg>
-    </div>
-
-    <!-- Offerings -->
-    <section class="section">
-        <div class="container">
-            <div class="section-eyebrow">How this works</div>
-            <h2 class="section-title">Four ways to work with your energy</h2>
-            <div class="section-body">
-                <p>Some of what's here is a tool you can use in five minutes, on your own, right now. Some of it is real conversation, in person, over time. Start wherever fits.</p>
-            </div>
-            <div class="offerings-grid">
-                <a href="root-cause.html" class="offering-tile card-accent-green">
-                    <span class="offering-tile-badge live">Available now</span>
-                    <div class="offering-tile-title">Energetic Root Cause Reading</div>
-                    <div class="offering-tile-desc">A guided reading that finds the specific energetic pattern behind a symptom, a diagnosis, or something you can't quite explain. Free.</div>
-                </a>
-                <a href="energy-audit.html" class="offering-tile card-accent-gold">
-                    <span class="offering-tile-badge soon">Coming soon</span>
-                    <div class="offering-tile-title">Energy Audit</div>
-                    <div class="offering-tile-desc">A complete accounting of where your energy actually goes, and a full reading built from your own words.</div>
-                </a>
-                <a href="work-with-me.html#circuit" class="offering-tile card-accent-green">
-                    <span class="offering-tile-badge soon">Coming soon</span>
-                    <div class="offering-tile-title">The Voltage Circuit</div>
-                    <div class="offering-tile-desc">An in-person circuit — LiveO2, sauna, red light, and assisted stretching — built to clear what's blocking you and help your body hold more energy.</div>
-                </a>
-                <a href="work-with-me.html#direction" class="offering-tile card-accent-gold">
-                    <span class="offering-tile-badge soon">Coming soon</span>
-                    <div class="offering-tile-title">Energetic Direction</div>
-                    <div class="offering-tile-desc">One-on-one guidance focused on where your energy is actually going, and how to redirect it toward the life you actually want.</div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <div class="voltage-divider gold">
         <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
 
     <!-- Closing CTA -->
-    <section class="section section-warm" style="text-align: center;">
+    <section class="section" style="text-align: center;">
         <div class="container">
-            <h2 class="section-title">Ready to find out where your energy is going?</h2>
+            <h2 class="section-title">The full Energy Audit is on its way</h2>
             <div class="section-body">
-                <p>Start with a free Energetic Root Cause reading.</p>
+                <p>A complete life inventory, a guided conversation, and a reading that traces every claim back to your own words. Until it's ready, the Energetic Root Cause Reading is live, free, and built on the same framework.</p>
             </div>
-            <a href="root-cause.html" class="cta-primary" style="margin-top: 1rem;">Energetic Root Cause</a>
+            <a href="root-cause.html" class="cta-primary" style="margin-top: 1rem;">Try the Root Cause Reading</a>
         </div>
     </section>
 
@@ -1004,24 +796,9 @@
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-            });
-        });
-    </script>
-    <script>
         function toggleMobileNav() {
             document.querySelector('.nav-toggle').classList.toggle('open');
             document.getElementById('mobileNav').classList.toggle('open');
-        }
-    </script>
-    <script>
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.querySelectorAll('.voltage-divider svg').forEach(function(svg) {
-                if (svg.pauseAnimations) svg.pauseAnimations();
-            });
         }
     </script>
 </body>
