@@ -199,6 +199,39 @@
         }
 
 
+        .charge-rect {
+            transform-origin: 50px 85px;
+            animation: chargeUp 4.2295s ease-in-out infinite;
+        }
+        .breathe-group {
+            transform-origin: 50px 50px;
+            animation: breatheSync 4.2295s ease-in-out infinite;
+        }
+        .flash-bolt {
+            animation: flickerFlash 4.2295s linear infinite;
+        }
+        @keyframes chargeUp {
+            0% { transform: scaleY(0.02); }
+            41.49% { transform: scaleY(1); }
+            44.69% { transform: scaleY(1); }
+            45.32% { transform: scaleY(0.02); }
+            100% { transform: scaleY(0.02); }
+        }
+        @keyframes breatheSync {
+            0% { transform: scale(1); }
+            20.75% { transform: scale(1.08); }
+            41.49% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes flickerFlash {
+            0%, 39.58%, 100% { opacity: 0; }
+            40.22% { opacity: 0.9; }
+            41.18% { opacity: 0.15; }
+            42.13% { opacity: 0.85; }
+            43.09% { opacity: 0.1; }
+            44.05% { opacity: 0.7; }
+            45.64% { opacity: 0; }
+        }
         .hero-eyebrow {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
@@ -728,6 +761,19 @@
             padding: 0 1rem;
         }
 
+        .section-subheading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            color: var(--accent);
+            text-align: center;
+            max-width: 720px;
+            margin: 2.25rem auto;
+            padding: 0 1rem;
+        }
+
     </style>
 <body>
 
@@ -763,12 +809,21 @@
                     <line x1="50" y1="92" x2="50" y2="98" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
                     <line x1="8" y1="50" x2="2" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
                     <line x1="92" y1="50" x2="98" y2="50" stroke="#1e1a16" stroke-width="1.5" opacity="0.32"/>
-                    <path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="#1e1a16"/>
+                    <defs>
+                        <clipPath id="chargeClip">
+                            <rect x="15" y="15" width="70" height="70" class="charge-rect"/>
+                        </clipPath>
+                    </defs>
+                    <g class="breathe-group">
+                        <path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="#1e1a16"/>
+                        <path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="#2d5a3d" clip-path="url(#chargeClip)"/>
+                        <path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="#faf8f4" class="flash-bolt"/>
+                    </g>
                 </svg>
             </div>
             <div class="hero-eyebrow">Recharge Your Life</div>
             <h1 class="hero-headline">Energy is the <em>currency</em> of your life.</h1>
-            <p class="hero-sub">Voltage Wellness helps you understand where your energy is going and direct it toward the life you want.</p>
+            <p class="hero-sub">Voltage Wellness helps you see exactly where your energy is going, and direct it toward the life you actually want.</p>
         </div>
     </section>
 
@@ -788,12 +843,40 @@
     <!-- Paradigm Shift -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title" style="text-align:center;">You're more energy than matter</h2>
+            <div class="section-eyebrow">You're more energy than matter</div>
+            <h2 class="section-title">Physical health always mirrors your energetic health.</h2>
             <div class="section-body">
-                <p>We're living through an evolutionary shift, one that asks us to rethink what we've long assumed about the body. For generations, health has been treated as a purely physical matter, something to be measured, medicated, and managed. But your body isn't only physical. It exists across many planes at once: physical, yes, but also energetic, emotional, mental, relational, and spiritual, all woven together rather than separated into parts. Your body isn't separate from your energy. It's your energy, held together in a shape solid enough for you to feel.</p>
-                <p class="pull-quote">Physical health follows energetic health. It doesn't lead it.</p>
-                <p>Most health advice never makes it past the physical layer, and when it tries, it tends to splinter into disconnected specialties rather than gather into one coherent picture. Our current model treats the symptom in front of it without asking the question underneath every symptom: how much energy do you actually have, and where has it been going?</p>
-                <p>Energy is meant to move, to transform, to create. When it can't, it builds up as density, and that density eventually surfaces in the body, whether as a symptom, a diagnosis, or an ache that won't resolve. This is why physical health and energetic health aren't two different things, only two different angles on the same one. Nothing appears in the body without first appearing in the energy beneath it. The energetic always arrives first. The physical follows.</p>
+                <p>We're living through a huge evolutionary shift, one that's asking for a real paradigm shift in how we think about our health and our body, because for generations we've treated health as a purely physical matter — something to measure, medicate, and manage — when that was never the whole picture. We exist across many planes at once: physical, yes, but also energetic, emotional, mental, relational, and spiritual, woven together rather than separated into parts to be treated in isolation. Your body isn't separate from your energy. It <em>is</em> your energy, simply held together in a form that's solid enough to touch.</p>
+                <p>There's real research behind this, not just philosophy. Psychoneuroimmunology, the field studying how psychological states affect the immune system, has spent decades establishing what our current healthcare model still mostly ignores: that chronic stress measurably suppresses immune function, raises inflammation, and increases the risk of disease, not metaphorically but in blood work, in cytokine levels, in the actual physical biology of the body. Bessel van der Kolk, a Boston University psychiatrist who spent thirty years treating trauma, documented something similar from a different angle, finding that patients with chronic pain and unexplained physical symptoms found relief only after they began processing what their bodies had been holding onto emotionally for years. The evidence keeps pointing to the same thing: what happens in your energy doesn't stay there. It becomes physical.</p>
+                <p>That's exactly what our modern healthcare system keeps missing, because it stays at the physical layer, and the deeper it tries to go, the more it splinters into disconnected specialties instead of seeing the whole picture. It sees the symptom in front of it and stops there, never asking the deeper question: how are you spending the currency of your life, and where is your energy actually going? Those questions matter precisely because the healthcare system was never built to ask them.</p>
+                <p>They matter because energy isn't meant to sit still. When it doesn't move, it doesn't just vanish — it accumulates, until eventually it surfaces as a symptom, a diagnosis, some physical sensation you can no longer ignore. The energetic always creates the physical. What's harder to explain from a purely clinical standpoint is why energy behaves this way in the first place, and what it's actually trying to become.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="voltage-divider gold">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
+            <g>
+                <animateMotion dur="5.07s" repeatCount="indefinite" calcMode="linear"
+                    keyPoints="0;0.464;0.536;1;1" keyTimes="0;0.1705;0.1824;0.359;1"
+                    path="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20"/>
+                <circle r="13" fill="#faf8f4" opacity="0.4"/>
+                <circle r="6.5" fill="#faf8f4"/>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Source and Vessel -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Where it all comes from</div>
+            <h2 class="section-title">You're not the source of your energy. You're the vessel for it.</h2>
+            <div class="section-body">
+                <p>You are physical, energetic, and spiritual all at once, though it's the spiritual layer — the deepest of the three — that actually animates the other two, functioning as the guiding force behind both your physical body and your energetic state. If you believe in God, this is precisely what that belief describes: God, the Creator, as the actual source of that spiritual energy, which means the creative capacity moving through you was never something you generated on your own. It was given to you, which is why your natural state was never meant to be passive. You were built to create, because the energy animating you comes from something whose entire nature is creation.</p>
+                <p>That's the piece the underlying mechanism alone doesn't explain. Energy moves because it was built by something that never stops moving, which means stuck energy isn't simply biology behaving oddly. It's energy that was meant to keep flowing through you and out into the world, now trapped instead in the one place it was never meant to stay.</p>
+                <p>Your body isn't random about where it holds that. It functions as a map, and once you learn to read it, that map works almost like a form of communication: stagnant energy settles into a specific place, and that place tells you something specific about what needs to move. The symptom that follows, and eventually the diagnosis, is a message rather than a malfunction, which means understanding it changes what you're actually supposed to do next. Create and move and transform in the direction it's pointing you toward, and the energy that was stuck becomes free to move again, because there's no longer a reason for the message to keep repeating itself. That's often exactly when the symptom clears.</p>
+                <p>This is the whole premise of Voltage Wellness: that you are an energetic, spiritual being, and your body is the conduit creative energy is meant to flow through, both into you and back out into the world through what you build with it. You're not the source of that energy. You're the vessel for it, which is why energy left unused doesn't simply wait quietly until you're ready. It collects, and eventually it turns into precisely the kind of symptom or diagnosis it's been trying to get you to notice.</p>
             </div>
         </div>
     </section>
@@ -817,10 +900,10 @@
             <div class="section-eyebrow">The reframe</div>
             <h2 class="section-title">Most of us give our energy to things that never give it back</h2>
             <div class="section-body">
-                <p>Scrolling. Replaying an old argument. News built to scare you. A friendship that leaves you a little more tired every time you hang up. We call this normal because it's familiar, not because it's good for us.</p>
-                <p>The fix: spend your energy on what actually gives it back. Real food. Water. Sleep. Letting go of what you can't change. Moving your body somewhere like a sauna or LiveO2 session, built to clear you out, not just burn calories. Being around people who leave you fuller than they found you.</p>
-                <p class="pull-quote">Real love expands you. Whatever isn't real will contract you — even when it calls itself love.</p>
-                <p>That's what "voltage" means here. Not how much you're doing. How much you're holding, and how much you give off.</p>
+                <p>Scrolling social media, replaying an old argument, watching news built to scare you, staying in a relationship or friendship that leaves you drained — we call this normal because it's familiar, not because it's good for us, even though each of these consumes your energy and leaves you depleted precisely because they're not life-giving ways to spend it. Spend enough of your life currency on things that deplete you rather than restore you, and the cost doesn't stay energetic for long. It becomes physical, since the body eventually has to start stealing from its own physical reserves just to keep going.</p>
+                <p>We're designed to spend our energy on things that recharge it, things that expand us: creative pursuits, expansive relationships, fulfilling work, real food, water, sleep, movement, letting go of what you can't change. The contradiction is that we want to feel alive, connected, and well, yet we spend our energetic currency on things that contract us instead, even though expansion, not contraction, was always the direction we were built to move in. Your body notices. Your <em>soul</em> notices.</p>
+                <p class="pull-quote">Love and truth are expansive — and healing. Whatever isn't true will contract you, even the relationship that calls itself love.</p>
+                <p>That's what "voltage" means here: not how much you're doing, but which direction your energy is actually moving, and how much of it you're holding onto versus how much you're actually letting move.</p>
             </div>
         </div>
     </section>
@@ -881,9 +964,9 @@
     <section class="section section-warm" style="text-align: center;">
         <div class="container">
             <div class="section-eyebrow">Power on.</div>
-            <h2 class="section-title">Ready to find your root cause?</h2>
+            <h2 class="section-title">Ready to see where your energy is actually going?</h2>
             <div class="section-body">
-                <p>Start with a free Energetic Root Cause reading.</p>
+                <p>Start with a free Energetic Root Cause reading — the first real step toward spending your currency on purpose.</p>
             </div>
             <a href="root-cause.html" class="cta-primary" style="margin-top: 1rem;">Energetic Root Cause</a>
         </div>
