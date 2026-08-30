@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energetic Soul Interpretations — Voltage Wellness</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf8f4;
+            --bg-card: #f3f0e9;
+            --bg-raised: #ede8dd;
+            --accent: #2d5a3d;
+            --accent-light: rgba(45,90,61,0.08);
+            --accent-border: rgba(45,90,61,0.25);
+            --accent-pop: #c17f3a;
+            --text: #1e1a16;
+            --text-secondary: #5c5147;
+            --text-muted: #9c8f82;
+            --border: rgba(100,80,60,0.1);
+            --border-mid: rgba(100,80,60,0.18);
+            --shadow: rgba(30,26,22,0.06);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 20px;
+        }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+        /* Header (matches root-cause.html) */
+        header {
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(250,248,244,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+        }
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+        .site-nav { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+        .nav-link {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .nav-link:hover { color: var(--accent); }
+        .nav-link.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .nav-toggle {
+            display: none; flex-direction: column; justify-content: center; gap: 5px;
+            width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0;
+        }
+        .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); transition: all 0.25s ease; }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .mobile-nav { display: flex; flex-direction: column; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .mobile-nav.open { max-height: 320px; }
+        .mobile-nav-link {
+            padding: 0.9rem 2rem; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 600;
+            color: var(--text-secondary); text-decoration: none; border-top: 1px solid var(--border);
+        }
+        .mobile-nav-link.active { color: var(--accent); }
+        @media (max-width: 680px) {
+            .header-inner { justify-content: space-between; }
+            .site-nav { display: none; }
+            .nav-toggle { display: flex; }
+        }
+        /* Hero */
+        .hero { padding: 3.5rem 0 2.5rem; text-align: center; }
+        .hero-eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+        }
+        .hero-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 800;
+            line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; color: var(--text);
+        }
+        .hero-sub {
+            font-size: 20px; color: var(--text-secondary); max-width: 640px; margin: 0 auto; line-height: 1.8;
+        }
+        .cta-primary {
+            display: inline-block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700;
+            letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: var(--accent);
+            padding: 12px 26px; border-radius: 4px; text-decoration: none; transition: all 0.2s;
+        }
+        .cta-primary:hover { background: #1e3d2a; transform: translateY(-1px); }
+        /* Controls */
+        .controls { padding: 0 0 2.5rem; }
+        .search-wrap { max-width: 480px; margin: 0 auto 1.5rem; position: relative; }
+        .search-input {
+            width: 100%; font-family: 'Crimson Text', Georgia, serif; font-size: 17px; color: var(--text);
+            background: #fff; border: 1.5px solid var(--border-mid); border-radius: 10px;
+            padding: 13px 16px 13px 42px; outline: none; transition: border-color 0.15s;
+        }
+        .search-input:focus { border-color: var(--accent); }
+        .search-icon {
+            position: absolute; left: 14px; top: 50%; transform: translateY(-50%); pointer-events: none;
+        }
+        .filter-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+        .filter-pill {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
+            color: var(--text-secondary); background: var(--bg-card); border: 1.5px solid var(--border-mid);
+            border-radius: 100px; padding: 7px 15px; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+        }
+        .filter-pill:hover { border-color: var(--accent-border); }
+        .filter-pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+        /* Grid */
+        .results-meta {
+            text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: var(--text-muted);
+            letter-spacing: 0.03em; margin-bottom: 1.75rem;
+        }
+        .report-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.1rem;
+            padding-bottom: 4rem;
+        }
+        .report-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 1.4rem 1.5rem; display: flex; flex-direction: column; transition: border-color 0.15s, transform 0.15s;
+        }
+        .report-card:hover { border-color: var(--accent-border); transform: translateY(-1px); }
+        .report-category {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent-pop); margin-bottom: 0.5rem;
+        }
+        .report-name {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 700; color: var(--text);
+            margin-bottom: 0.5rem; line-height: 1.3;
+        }
+        .report-teaser {
+            font-size: 15.5px; color: var(--text-secondary); line-height: 1.6; flex: 1; margin-bottom: 1rem;
+            font-style: italic;
+        }
+        .report-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+        .report-price {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 800; color: var(--accent);
+        }
+        .report-buy {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.03em;
+            color: #fff; background: var(--accent); border: none; border-radius: 6px; padding: 9px 14px;
+            text-decoration: none; cursor: pointer; transition: background 0.15s;
+        }
+        .report-buy:hover { background: #1e3d2a; }
+        .report-soon {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+            text-transform: uppercase; color: var(--text-muted); background: var(--bg-raised);
+            border-radius: 6px; padding: 9px 12px;
+        }
+        .empty-state {
+            text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px; display: none;
+        }
+        /* Footer */
+        footer {
+            padding: 2rem; border-top: 1px solid var(--border); text-align: center; font-size: 13px;
+            color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em;
+        }
+        @media (max-width: 640px) {
+            header { padding: 1.25rem 1.5rem; }
+            .report-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo"><span>Vo<svg width="9" height="20" viewBox="32 17 40 66" style="display:inline-block;vertical-align:-4px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="currentColor"/></svg>tage</span> Wellness</a>
+            <nav class="site-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="reading-library.html" class="nav-link active">Energetic Soul Interpretations</a>
+                <a href="energy-audit.html" class="nav-link">Energetic Direction</a>
+                <a href="work-with-me.html" class="nav-link">Work With Me</a>
+                <!-- Hidden for now, bring back later:
+                <a href="root-cause.html" class="nav-link">Soul-Based Energetic Reading</a>
+                -->
+            </nav>
+            <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="reading-library.html" class="mobile-nav-link active">Reading Library</a>
+            <a href="energy-audit.html" class="mobile-nav-link">Energetic Direction</a>
+            <a href="work-with-me.html" class="mobile-nav-link">Work With Me</a>
+            <!-- Hidden for now, bring back later:
+            <a href="root-cause.html" class="mobile-nav-link">Soul-Based Energetic Reading</a>
+            -->
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-eyebrow">Energetic Soul Interpretations</div>
+            <h1 class="hero-headline">A written reading for your specific condition — $5</h1>
+            <p class="hero-sub">Browse the library and find the one that matches what you're carrying. Each interpretation is a complete, ready-to-read report — delivered straight to your inbox the moment you purchase.</p>
+        </div>
+    </section>
+
+    <!-- Controls + Grid -->
+    <section>
+        <div class="container">
+            <div class="controls">
+                <div class="search-wrap">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7" stroke="#9c8f82" stroke-width="1.75"/>
+                        <path d="M21 21l-4.3-4.3" stroke="#9c8f82" stroke-width="1.75" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search by condition (e.g. Hashimoto's, IBS, Anxiety)...">
+                </div>
+                <div class="filter-pills" id="filterPills"></div>
+            </div>
+
+            <div class="results-meta" id="resultsMeta"></div>
+            <div class="report-grid" id="reportGrid"></div>
+            <div class="empty-state" id="emptyState">No reports match your search yet — try a different term, or check back soon as more are added.</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        Voltage Wellness &nbsp;·&nbsp; Recharge Your Life &nbsp;·&nbsp; Energetic interpretation — not medical advice &nbsp;·&nbsp; All purchases are private and confidential
+    </footer>
+
+    <script>
+        function toggleMobileNav() {
+            document.querySelector('.nav-toggle').classList.toggle('open');
+            document.getElementById('mobileNav').classList.toggle('open');
+        }
+    </script>
+
+    <script>
+    /* =====================================================================
+       REPORT CATALOG DATA
+       =====================================================================
+       This is the ONLY thing you need to touch to add a new report. Each
+       entry is one object in the REPORTS array below. As you finish writing
+       each condition's report and create its $5 product on your selling
+       platform (see the setup guide), come back here and:
+
+         1. Copy one of the existing objects as a template.
+         2. Change "name", "category", and "teaser" to match the new report.
+         3. Paste the product's real buy link into "buyUrl".
+
+       Until buyUrl is filled in (left as null), the card shows a "Coming
+       Soon" tag instead of a working buy button — so you can list a
+       condition's name here before its report and product both exist,
+       without selling something you can't deliver yet.
+
+       CATEGORIES must exactly match (case-sensitive) one of the values in
+       the CATEGORIES array right below — add a new category there first if
+       a report doesn't fit the existing ones.
+       ===================================================================== */
+
+    const CATEGORIES = [
+        "Autoimmune",
+        "Chronic Pain & Fatigue",
+        "Gut & Digestive",
+        "Hormonal & Endocrine",
+        "Mental Health",
+        "Trauma & Nervous System",
+        "Addiction & Recovery",
+        "Cancer",
+    ];
+
+    // TOTAL_PLANNED is just for the "X of 50 available" message below — it
+    // does not limit how many reports can actually be added. Update it if
+    // the total count of planned reports changes.
+    const TOTAL_PLANNED = 50;
+
+    const REPORTS = [
+        {
+            name: "Lupus",
+            category: "Autoimmune",
+            teaser: "A root-and-solar-plexus reading on what happens when the immune system turns on itself.",
+            buyUrl: null,
+        },
+        {
+            name: "Rheumatoid Arthritis",
+            category: "Autoimmune",
+            teaser: "What your joints are telling you about willingness to act, and where movement quietly stopped feeling safe.",
+            buyUrl: null,
+        },
+        {
+            name: "Hashimoto's",
+            category: "Autoimmune",
+            teaser: "A fifth-chakra reading on decades of suppression finally reaching the throat.",
+            buyUrl: null,
+        },
+        {
+            name: "Fibromyalgia",
+            category: "Chronic Pain & Fatigue",
+            teaser: "A root-and-crown signature for a body that's been financing more than it can afford to carry.",
+            buyUrl: null,
+        },
+        {
+            name: "Chronic Fatigue Syndrome",
+            category: "Chronic Pain & Fatigue",
+            teaser: "What it means when your soul is financing a life that costs more than it returns.",
+            buyUrl: null,
+        },
+        {
+            name: "IBS",
+            category: "Gut & Digestive",
+            teaser: "A second-chakra reading on the boundary you haven't been able to hold.",
+            buyUrl: null,
+        },
+        {
+            name: "Crohn's Disease",
+            category: "Gut & Digestive",
+            teaser: "What the gut is trying to process that the mind hasn't been able to.",
+            buyUrl: null,
+        },
+        {
+            name: "Hypothyroidism",
+            category: "Hormonal & Endocrine",
+            teaser: "A fifth-chakra reading on the voice you've been managing instead of using.",
+            buyUrl: null,
+        },
+        {
+            name: "Adrenal Fatigue",
+            category: "Hormonal & Endocrine",
+            teaser: "What years of vigilance actually cost the body that's been holding it.",
+            buyUrl: null,
+        },
+        {
+            name: "Depression",
+            category: "Mental Health",
+            teaser: "A reading on power that's collapsed, or grief that never finished.",
+            buyUrl: null,
+        },
+        {
+            name: "Anxiety",
+            category: "Mental Health",
+            teaser: "What the nervous system is bracing for, and why the world stopped feeling safe.",
+            buyUrl: null,
+        },
+        {
+            name: "PTSD",
+            category: "Trauma & Nervous System",
+            teaser: "The message your body is still sending long after the danger has passed.",
+            buyUrl: null,
+        },
+        {
+            name: "Addiction & Recovery",
+            category: "Addiction & Recovery",
+            teaser: "A reading on what compulsion is actually standing in for.",
+            buyUrl: null,
+        },
+        {
+            name: "Breast Cancer",
+            category: "Cancer",
+            teaser: "A restrained, compassionate reading on nurturing and self-abandonment — alongside, never in place of, your medical care.",
+            buyUrl: null,
+        },
+    ];
+
+    /* ===================== Rendering — no edits needed below ===================== */
+
+    let activeCategory = "All";
+    let searchTerm = "";
+
+    function escapeHtml(str) {
+        const div = document.createElement("div");
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    function renderPills() {
+        const wrap = document.getElementById("filterPills");
+        const all = ["All", ...CATEGORIES];
+        wrap.innerHTML = all.map(cat =>
+            `<button class="filter-pill${cat === activeCategory ? " active" : ""}" data-cat="${escapeHtml(cat)}">${escapeHtml(cat)}</button>`
+        ).join("");
+        wrap.querySelectorAll(".filter-pill").forEach(btn => {
+            btn.addEventListener("click", () => {
+                activeCategory = btn.getAttribute("data-cat");
+                render();
+            });
+        });
+    }
+
+    function matchesFilters(report) {
+        const inCategory = activeCategory === "All" || report.category === activeCategory;
+        const term = searchTerm.trim().toLowerCase();
+        const inSearch = !term || report.name.toLowerCase().includes(term) || report.teaser.toLowerCase().includes(term);
+        return inCategory && inSearch;
+    }
+
+    function renderCard(report) {
+        const buyControl = report.buyUrl
+            ? `<a class="report-buy" href="${escapeHtml(report.buyUrl)}" target="_blank" rel="noopener">Get This Reading</a>`
+            : `<span class="report-soon">Coming Soon</span>`;
+        return `
+            <div class="report-card">
+                <div class="report-category">${escapeHtml(report.category)}</div>
+                <div class="report-name">${escapeHtml(report.name)}</div>
+                <div class="report-teaser">${escapeHtml(report.teaser)}</div>
+                <div class="report-footer">
+                    <div class="report-price">$5</div>
+                    ${buyControl}
+                </div>
+            </div>`;
+    }
+
+    function render() {
+        renderPills();
+        const filtered = REPORTS.filter(matchesFilters);
+        const grid = document.getElementById("reportGrid");
+        const empty = document.getElementById("emptyState");
+        const meta = document.getElementById("resultsMeta");
+
+        grid.innerHTML = filtered.map(renderCard).join("");
+        empty.style.display = filtered.length === 0 ? "block" : "none";
+        meta.textContent = `${REPORTS.length} of ${TOTAL_PLANNED} readings available now — more added as they're finished`;
+    }
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+        searchTerm = e.target.value;
+        render();
+    });
+
+    render();
+    </script>
+</body>
+</html>

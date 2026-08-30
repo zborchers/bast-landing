@@ -25,9 +25,7 @@
             --border-mid: rgba(100,80,60,0.18);
             --shadow: rgba(30,26,22,0.06);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Crimson Text', Georgia, serif;
             background: var(--bg);
@@ -36,9 +34,7 @@
             font-size: 21px;
             overflow-x: hidden;
         }
-
         .container { max-width: 920px; margin: 0 auto; padding: 0 2rem; }
-
         /* Header */
         header {
             padding: 1.25rem 2rem;
@@ -49,7 +45,6 @@
             backdrop-filter: blur(10px);
             z-index: 100;
         }
-
         .header-inner {
             max-width: 1100px;
             margin: 0 auto;
@@ -59,7 +54,6 @@
             flex-wrap: wrap;
             gap: 0.75rem 1.5rem;
         }
-
         .logo {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 15px;
@@ -69,15 +63,12 @@
             color: var(--text);
             text-decoration: none;
         }
-
         .logo span { color: var(--accent); }
-
         .site-nav {
             display: flex;
             gap: 1.75rem;
             flex-wrap: wrap;
         }
-
         .nav-link {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 13px;
@@ -90,14 +81,11 @@
             transition: all 0.15s;
             white-space: nowrap;
         }
-
         .nav-link:hover { color: var(--accent); }
-
         .nav-link.active {
             color: var(--accent);
             border-bottom-color: var(--accent);
         }
-
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -110,7 +98,6 @@
             cursor: pointer;
             padding: 0;
         }
-
         .nav-toggle span {
             display: block;
             width: 100%;
@@ -118,11 +105,9 @@
             background: var(--text);
             transition: all 0.25s ease;
         }
-
         .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         .nav-toggle.open span:nth-child(2) { opacity: 0; }
         .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
         .mobile-nav {
             display: flex;
             flex-direction: column;
@@ -130,9 +115,7 @@
             overflow: hidden;
             transition: max-height 0.3s ease;
         }
-
         .mobile-nav.open { max-height: 320px; }
-
         .mobile-nav-link {
             padding: 0.9rem 2rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -142,15 +125,12 @@
             text-decoration: none;
             border-top: 1px solid var(--border);
         }
-
         .mobile-nav-link.active { color: var(--accent); }
-
         @media (max-width: 680px) {
             .header-inner { justify-content: space-between; text-align: left; }
             .site-nav { display: none; }
             .nav-toggle { display: flex; }
         }
-
         .header-cta {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 12px;
@@ -164,12 +144,10 @@
             text-decoration: none;
             transition: all 0.2s;
         }
-
         .header-cta:hover {
             background: #1e3d2a;
             transform: translateY(-1px);
         }
-
         /* Hero */
         .hero {
             padding: 2rem 0;
@@ -177,28 +155,22 @@
             position: relative;
             background: radial-gradient(ellipse 75% 55% at 50% 0%, rgba(45,90,61,0.08), transparent 70%);
         }
-
         .voltage-divider {
             width: 100%;
             overflow: hidden;
             background: var(--bg);
             line-height: 0;
         }
-
         .voltage-divider svg {
             display: block;
             width: 100%;
             height: 34px;
         }
-
         .voltage-divider .divider-line { stroke: #2d5a3d; }
         .voltage-divider.gold .divider-line { stroke: var(--accent-pop); }
-
         .section-warm {
             background: linear-gradient(135deg, rgba(45,90,61,0.06), rgba(193,127,58,0.06));
         }
-
-
         .charge-rect {
             transform-origin: 50px 85px;
             animation: chargeUp 4.2295s ease-in-out infinite;
@@ -241,7 +213,6 @@
             color: var(--accent);
             margin-bottom: 1.5rem;
         }
-
         .hero-headline {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(2.6rem, 5vw, 4rem);
@@ -252,14 +223,12 @@
             color: var(--text);
             white-space: nowrap;
         }
-
         .hero-headline em {
             font-style: italic;
             font-family: 'Crimson Text', Georgia, serif;
             font-weight: 400;
             color: var(--accent-pop);
         }
-
         .hero-sub {
             font-size: 22px;
             color: var(--text-secondary);
@@ -267,7 +236,6 @@
             margin: 0 auto 2.5rem;
             line-height: 1.8;
         }
-
         .cta-primary {
             display: inline-block;
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -283,16 +251,13 @@
             transition: all 0.2s;
             box-shadow: 0 4px 16px rgba(45,90,61,0.2);
         }
-
         .cta-primary:hover {
             background: #1e3d2a;
             transform: translateY(-2px);
             box-shadow: 0 8px 28px rgba(45,90,61,0.25);
         }
-
         /* Sections */
         .section { padding: 2rem 0; }
-
         .section-eyebrow {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
@@ -302,7 +267,6 @@
             color: var(--accent);
             margin-bottom: 1.5rem;
         }
-
         .section-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(1.6rem, 3vw, 2.1rem);
@@ -312,11 +276,9 @@
             margin-bottom: 1.75rem;
             color: var(--text);
         }
-
         .section-body { color: var(--text-secondary); line-height: 1.85; }
         .section-body p { margin-bottom: 1.25rem; }
         .section-body p:last-child { margin-bottom: 0; }
-
         /* Preview */
         .preview-wrap {
             background: var(--bg-card);
@@ -326,7 +288,6 @@
             margin-top: 2.5rem;
             box-shadow: 0 4px 24px var(--shadow);
         }
-
         .closing-box {
             background: var(--bg-card);
             border: 1px solid var(--border-mid);
@@ -337,7 +298,6 @@
             margin: 0 auto;
             text-align: center;
         }
-
         .closing-box p {
             font-family: 'Crimson Text', Georgia, serif;
             font-size: 19px;
@@ -345,7 +305,6 @@
             color: var(--text-secondary);
             margin: 0;
         }
-
         .preview-bar {
             background: var(--bg-raised);
             padding: 0.7rem 1.25rem;
@@ -354,13 +313,11 @@
             gap: 6px;
             border-bottom: 1px solid var(--border);
         }
-
         .preview-dot {
             width: 10px; height: 10px;
             border-radius: 50%;
             background: var(--border-mid);
         }
-
         .preview-label {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 11px;
@@ -370,15 +327,12 @@
             color: var(--text-muted);
             margin-left: auto;
         }
-
         .preview-body { padding: 2rem; }
-
         .msg-user {
             display: flex;
             justify-content: flex-end;
             margin-bottom: 1.5rem;
         }
-
         .msg-user-bubble {
             background: var(--bg-raised);
             border: 1px solid var(--border-mid);
@@ -390,14 +344,12 @@
             color: var(--text-secondary);
             font-style: italic;
         }
-
         .msg-ai {
             display: flex;
             gap: 12px;
             align-items: flex-start;
             margin-bottom: 1.5rem;
         }
-
         .msg-ai-icon {
             width: 28px; height: 28px;
             border-radius: 50%;
@@ -409,19 +361,16 @@
             flex-shrink: 0;
             margin-top: 3px;
         }
-
         .msg-ai-body {
             font-size: 17px;
             line-height: 1.82;
             color: var(--text);
         }
-
         .preview-divider {
             border-top: 1px solid var(--border);
             margin: 1.5rem 0 0;
             padding-top: 1.5rem;
         }
-
         .preview-divider-label {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 10px;
@@ -431,7 +380,6 @@
             color: var(--text-muted);
             margin-bottom: 1.25rem;
         }
-
         .interactive-note {
             margin-top: 1.5rem;
             padding: 1.25rem 1.5rem;
@@ -440,7 +388,6 @@
             border-radius: 8px;
             text-align: center;
         }
-
         .interactive-note-label {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 10px;
@@ -450,13 +397,11 @@
             color: var(--accent);
             margin-bottom: 0.5rem;
         }
-
         .interactive-note p {
             font-size: 16px;
             color: var(--text-secondary);
             line-height: 1.75;
         }
-
         /* Framework */
         .framework-grid {
             display: grid;
@@ -464,7 +409,6 @@
             gap: 1rem;
             margin-top: 2rem;
         }
-
         .framework-tile {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -472,9 +416,7 @@
             padding: 1.5rem;
             transition: border-color 0.2s;
         }
-
         .framework-tile:hover { border-color: var(--accent-border); }
-
         .framework-tile-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
@@ -483,13 +425,11 @@
             margin-bottom: 0.75rem;
             letter-spacing: 0.01em;
         }
-
         .framework-tile-desc {
             font-size: 16px;
             color: var(--text-secondary);
             line-height: 1.65;
         }
-
         /* Audience */
         .audience-grid {
             display: grid;
@@ -497,7 +437,6 @@
             gap: 1rem;
             margin-top: 2rem;
         }
-
         .audience-tile {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -505,9 +444,7 @@
             padding: 1.5rem;
             transition: border-color 0.2s;
         }
-
         .audience-tile:hover { border-color: var(--border-mid); }
-
         .audience-num {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 28px;
@@ -517,13 +454,11 @@
             line-height: 1;
             margin-bottom: 0.75rem;
         }
-
         .audience-desc {
             font-size: 18px;
             color: var(--text-secondary);
             line-height: 1.65;
         }
-
         @media (max-width: 900px) {
             .audience-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -534,7 +469,6 @@
                 grid-template-columns: 1fr !important;
             }
         }
-
         /* Purchase */
         .purchase {
             padding: 5rem 0;
@@ -543,7 +477,6 @@
             background: var(--bg-card);
             margin-top: 0;
         }
-
         .purchase-price { text-align: center;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 80px;
@@ -553,7 +486,6 @@
             margin: 1rem 0 1.5rem;
             letter-spacing: -0.02em;
         }
-
         .purchase-desc {
             font-size: 18px;
             color: var(--text-secondary);
@@ -561,7 +493,6 @@
             margin: 0 auto 2rem;
             line-height: 1.8;
         }
-
         .purchase-features { margin-left: auto; margin-right: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -570,7 +501,6 @@
             margin: 0 auto 2.5rem;
             text-align: left;
         }
-
         .purchase-feature {
             display: flex;
             align-items: flex-start;
@@ -578,7 +508,6 @@
             font-size: 16px;
             color: var(--text-secondary);
         }
-
         .purchase-feature::before {
             content: '✦';
             color: var(--accent-pop);
@@ -586,16 +515,13 @@
             margin-top: 5px;
             flex-shrink: 0;
         }
-
         /* About */
         .about { padding: 2rem 0; }
-
         .about-inner {
             display: flex;
             gap: 2.5rem;
             align-items: flex-start;
         }
-
         .about-photo {
             width: 130px;
             height: 130px;
@@ -604,7 +530,6 @@
             flex-shrink: 0;
             border: 1px solid var(--border-mid);
         }
-
         .about-name {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 20px;
@@ -612,7 +537,6 @@
             color: var(--text);
             margin-bottom: 0.2rem;
         }
-
         .about-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 11px;
@@ -622,13 +546,11 @@
             color: var(--accent);
             margin-bottom: 1rem;
         }
-
         .about-bio {
             font-size: 17px;
             color: var(--text-secondary);
             line-height: 1.8;
         }
-
         /* Footer */
         footer {
             padding: 2rem;
@@ -639,7 +561,6 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             letter-spacing: 0.05em;
         }
-
         @media (max-width: 640px) {
             .framework-grid,
             .audience-grid,
@@ -720,7 +641,6 @@
             gap: 1rem;
             margin-top: 2rem;
         }
-
         .offering-tile {
             display: block;
             background: var(--bg-card);
@@ -730,9 +650,7 @@
             transition: border-color 0.2s, transform 0.2s;
             text-decoration: none;
         }
-
         .offering-tile:hover { border-color: var(--accent-border); transform: translateY(-2px); }
-
         .offering-tile-badge {
             display: inline-block;
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -744,10 +662,8 @@
             border-radius: 100px;
             margin-bottom: 0.9rem;
         }
-
         .offering-tile-badge.live { background: rgba(45,90,61,0.12); color: var(--accent); }
         .offering-tile-badge.soon { background: rgba(193,127,58,0.14); color: var(--accent-pop); }
-
         .offering-tile-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 17px;
@@ -755,19 +671,16 @@
             color: var(--text);
             margin-bottom: 0.6rem;
         }
-
         .offering-tile-desc {
             font-size: 15px;
             color: var(--text-secondary);
             line-height: 1.6;
         }
-
         @media (max-width: 900px) {
             .offerings-grid { grid-template-columns: 1fr; }
         }
         .card-accent-green { border-top: 3px solid var(--accent); }
         .card-accent-gold { border-top: 3px solid var(--accent-pop); }
-
         .pull-quote {
             font-family: 'Crimson Text', Georgia, serif;
             font-style: italic;
@@ -779,7 +692,6 @@
             margin: 2.25rem auto;
             padding: 0 1rem;
         }
-
         .section-subheading {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(1.3rem, 2.4vw, 1.65rem);
@@ -792,18 +704,17 @@
             margin: 2.25rem auto;
             padding: 0 1rem;
         }
-
     </style>
 <body>
-
     <!-- Header -->
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo"><span>Vo<svg width="9" height="20" viewBox="32 17 40 66" style="display:inline-block;vertical-align:-4px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M42.4,34.83 L33.2,51.73 L47.5,51.93 L33.65,82.17 L72.0,44.73 L54.0,44.62 L53.3,17.83 Z" fill="currentColor"/></svg>tage</span> Wellness</a>
             <nav class="site-nav">
                 <a href="index.html" class="nav-link active">Home</a>
-                <a href="root-cause.html" class="nav-link">Energetic Root Cause</a>
+                <a href="reading-library.html" class="nav-link">Energetic Soul Interpretations</a>
                 <!-- Hidden for now, bring back later:
+                <a href="root-cause.html" class="nav-link">Energetic Root Cause</a>
                 <a href="energy-audit.html" class="nav-link">Energetic Direction</a>
                 <a href="work-with-me.html" class="nav-link">Work With Me</a>
                 -->
@@ -814,14 +725,14 @@
         </div>
         <nav class="mobile-nav" id="mobileNav">
             <a href="index.html" class="mobile-nav-link active">Home</a>
-            <a href="root-cause.html" class="mobile-nav-link">Energetic Root Cause</a>
+            <a href="reading-library.html" class="mobile-nav-link">Reading Library</a>
             <!-- Hidden for now, bring back later:
+            <a href="root-cause.html" class="mobile-nav-link">Energetic Root Cause</a>
             <a href="energy-audit.html" class="mobile-nav-link">Energetic Direction</a>
             <a href="work-with-me.html" class="mobile-nav-link">Work With Me</a>
             -->
         </nav>
     </header>
-
     <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -849,7 +760,6 @@
             <p class="hero-sub">Voltage Wellness helps you understand exactly where your energy is going and direct it toward the life you actually want.</p>
         </div>
     </section>
-
     <div class="voltage-divider gold">
         <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -862,7 +772,6 @@
             </g>
         </svg>
     </div>
-
     <!-- Paradigm Shift -->
     <section class="section">
         <div class="container">
@@ -874,7 +783,6 @@
             </div>
         </div>
     </section>
-
     <div class="voltage-divider gold">
         <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -887,7 +795,6 @@
             </g>
         </svg>
     </div>
-
     <!-- Source and Vessel -->
     <section class="section">
         <div class="container">
@@ -901,7 +808,6 @@
             </div>
         </div>
     </section>
-
     <div class="voltage-divider">
         <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -914,7 +820,6 @@
             </g>
         </svg>
     </div>
-
     <!-- The Reframe -->
     <section class="section">
         <div class="container">
@@ -928,7 +833,6 @@
             </div>
         </div>
     </section>
-
     <div class="voltage-divider">
         <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -941,13 +845,11 @@
             </g>
         </svg>
     </div>
-
     <div class="voltage-divider gold">
         <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path class="divider-line" d="M0,20 L570,20 L590,4 L610,36 L630,20 L1200,20" fill="none" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
-
     <!-- Closing CTA -->
     <section class="section section-warm" style="text-align: center;">
         <div class="container">
@@ -959,7 +861,6 @@
             <a href="https://app.voltagewellness.com" class="cta-primary" style="margin-top: 1rem;">Energetic Root Cause</a>
         </div>
     </section>
-
     <section class="section" style="padding-top: 2rem;">
         <div class="container">
             <div class="closing-box">
@@ -967,12 +868,10 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         Voltage Wellness &nbsp;·&nbsp; Recharge Your Life &nbsp;·&nbsp; Energetic root-cause interpretation — not medical advice &nbsp;·&nbsp; All conversations are private and confidential
     </footer>
-
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
